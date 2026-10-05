@@ -8,9 +8,9 @@ Replace the independent ordinary-doctrine approximation with verified current-bu
    Reconstruct prerequisite/successor chains, branches, OR dependencies, and inverted restrictions for ordinary D1/D2/D3 doctrines.
 2. **Reward/weight-changing ordinary doctrines** — complete
    Map all ordinary doctrines that modify reinforcement/reward probability or generate additional drafts, including exact live effects where source evidence permits.
-3. **Focused Militarization exact behavior** — active
+3. **Focused Militarization exact behavior** — complete
    Resolve its building-doctrine multiplier delta and determine whether its immediate draft observes the changed multiplier.
-4. **Model integration** — pending
+4. **Model integration** — active
    Represent dependencies and reward-changing doctrines as state transitions and add regression tests.
 5. **Experiment refresh** — pending
    Re-run cleanup/D7 experiments against the corrected model and update strategy conclusions.

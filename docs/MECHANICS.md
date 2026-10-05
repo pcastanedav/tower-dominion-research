@@ -180,7 +180,7 @@ Percentage modifiers on the item-specific `GameEffectValue` add before the final
 
 ### Global building-Doctrine multiplier
 
-`GameEffectType 67` changes the global building-Doctrine multiplier. Current assets contain raw +4 and +9 effects. Starting from default 3, reachable arithmetic includes 7, 12, and 16 if both stack. Exact ownership/timing of every effect is still being mapped.
+`GameEffectType 67` changes the global building-Doctrine multiplier. Current assets contain raw +4 and +9 effects. Starting from default 3, reachable arithmetic includes 7, 12, and 16 if both stack. D2_40 Focused Militarization owns the +4 effect and therefore changes the multiplier from 3 to 7 when taken.
 
 ### Doctrine reward/rank weighting
 
@@ -259,7 +259,7 @@ This ordinary T2 doctrine generates **two separate Doctrine drafts**, each choos
 ### D2_40 — Focused militarization
 “Building doctrines are more likely to appear\nGain 1 Doctrine among 2.”
 
-This ordinary T2 doctrine is a hybrid: it both modifies future building-Doctrine weighting and immediately creates a choose-1-among-2 Doctrine draft. It is available across factions according to the current investigation; exact global multiplier delta is still being resolved from live effect ownership.
+This ordinary T2 doctrine is a hybrid: it increases the global building-Doctrine multiplier by exactly +4 (default 3 -> 7) and creates an immediate choose-1-among-2 Doctrine draft. Its serialized effect order is the +4 multiplier first, then the special reward. Skill.ApplyEffects applies effects sequentially, while SpecialRewardService queues the reward for processing, so the immediate draft observes the updated multiplier of 7. It is available across factions according to the current investigation.
 
 ### TBCB05D7 — Sanction cannon expertise
 “Gain 1 Doctrine among 3, 3 times.”

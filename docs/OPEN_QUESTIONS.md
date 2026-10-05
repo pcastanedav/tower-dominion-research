@@ -2,9 +2,8 @@
 
 ## Highest priority
 
-1. Resolve Focused Militarization's exact building-Doctrine multiplier delta and whether its immediate draft observes the new multiplier before drawing.
-2. Integrate ordinary-doctrine availability restrictions and reward/weight-changing doctrines into the evolving-run model and add regression tests without breaking the established baseline.
-3. Re-run cleanup and D7 experiments. Existing absolute probabilities that omit reward/weight-changing state transitions are provisional.
+1. Integrate ordinary-doctrine availability restrictions and reward/weight-changing doctrines into the evolving-run model and add regression tests without breaking the established baseline.
+2. Re-run cleanup and D7 experiments. Existing absolute probabilities that omit reward/weight-changing state transitions are provisional.
 
 ## Eleanor
 
