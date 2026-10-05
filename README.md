@@ -19,6 +19,7 @@ Observed installed build characteristics during this analysis:
 - `docs/MECHANICS.md` — verified mechanics and exact values.
 - `docs/STRATEGY.md` — conclusions and player-facing heuristics supported by the mechanics.
 - `docs/OPEN_QUESTIONS.md` — unresolved work and important model caveats.
+- `docs/WORK_PROCEDURE.md` — required task/slice workflow, resumability, `progress <n>` semantics, and checkpoint procedure.
 - `model/reinforcement_model.py` — independent executable model.
 - `model/test_model.py` — model tests.
 - `model/*_tmp.py` — exploratory simulations retained for reproducibility; results using the old independent-ordinary-doctrine approximation are explicitly provisional.
