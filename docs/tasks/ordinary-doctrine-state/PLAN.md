@@ -4,9 +4,9 @@
 Replace the independent ordinary-doctrine approximation with verified current-build knowledge of ordinary-doctrine dependencies and reward-changing state transitions, preparing the executable model for a later integration slice.
 
 ## Slices
-1. **Ordinary-doctrine dependency graph** — active
+1. **Ordinary-doctrine dependency graph** — complete
    Reconstruct prerequisite/successor chains, branches, OR dependencies, and inverted restrictions for ordinary D1/D2/D3 doctrines.
-2. **Reward/weight-changing ordinary doctrines** — pending
+2. **Reward/weight-changing ordinary doctrines** — active
    Map all ordinary doctrines that modify reinforcement/reward probability or generate additional drafts, including exact live effects where source evidence permits.
 3. **Focused Militarization exact behavior** — pending
    Resolve its building-doctrine multiplier delta and determine whether its immediate draft observes the changed multiplier.

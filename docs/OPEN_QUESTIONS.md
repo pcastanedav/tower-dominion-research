@@ -2,15 +2,14 @@
 
 ## Highest priority
 
-1. Reconstruct the complete **ordinary-doctrine dependency graph** from the current build. Identify every prerequisite/successor chain, branch, OR dependency, and inverted restriction.
 2. Map all ordinary doctrines that change reward probability or generate rewards, including exact live effects for:
    - D1_19 Military academy;
    - D2_06 Strict obedience;
    - D2_40 Focused militarization;
    - any additional T2/T3 Doctrine-weight modifiers.
 3. Resolve Focused Militarization's exact building-Doctrine multiplier delta and whether its immediate draft observes the new multiplier before drawing.
-4. Integrate linked ordinary doctrines and draft-generating doctrines into the evolving-run model and add regression tests without breaking the existing 50-test baseline.
-5. Re-run cleanup and D7 experiments. Existing absolute probabilities that assume independent ordinary-doctrine depletion are provisional.
+3. Integrate ordinary-doctrine availability restrictions and reward/weight-changing doctrines into the evolving-run model and add regression tests without breaking the established baseline.
+4. Re-run cleanup and D7 experiments. Existing absolute probabilities that omit reward/weight-changing state transitions are provisional.
 
 ## Eleanor
 
@@ -44,6 +43,6 @@
 
 ## Important simulation caveat
 
-Temporary D7 experiments currently in `model/*_tmp.py` established strong directional effects for family concentration, delayed diversification, Tander, and Magel. Their **absolute completion probabilities are not authoritative** until ordinary linked doctrines and reward-generating doctrines are represented.
+Temporary D7 experiments currently in `model/*_tmp.py` established strong directional effects for family concentration, delayed diversification, Tander, and Magel. Their **absolute completion probabilities are not authoritative** until ordinary availability restrictions and reward/weight-changing state transitions are represented.
 
 The qualitative result that unrelated doctrine-bearing families create persistent competition remains supported by the verified building-Doctrine eligibility/weight mechanics.

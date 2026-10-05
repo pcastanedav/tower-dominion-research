@@ -280,3 +280,16 @@ Inspection of adjacency collection shows actual `BuildingEntity` instances are c
 ## 13. Selling economics
 
 Removing a doctrine-bearing family can clean untouched opening nodes from the pool, but this has a real cost. Selling returns 80% of the **current building cost**, which can be less than 80% of total Supply invested after upgrades, and destroys combat infrastructure. Therefore “never place it” and “place then sell it” are strategically different operations.
+
+## 14. Ordinary-doctrine availability graph correction
+
+A complete serialized scan of all 118 current-build ordinary `D1_*` / `D2_*` / `D3_*` SkillData assets found **no `ByOwnedSkillType` restrictions** and **no reversed restrictions**. Therefore there is no ordinary-to-ordinary prerequisite/successor dependency graph in the inspected build.
+
+The only non-faction placement dependency among the 118 ordinary doctrines is:
+- `D1_43`: AND restriction requiring tower type `CB19` to be placed.
+
+Faction restrictions remain part of ordinary-doctrine eligibility, but they do not create in-run doctrine successor chains.
+
+This corrects the earlier provisional assumption that some ordinary doctrines expose linked ordinary successors. Ordinary doctrines can still cause nonlinear state transitions through reward-generating and weight-changing effects; those effects are separate from availability dependencies.
+
+The reproducible serialized extraction is retained in `tools/extract_ordinary_doctrines.py` and `maps/ordinary-doctrines.json`.
