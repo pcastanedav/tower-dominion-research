@@ -1,0 +1,14 @@
+# Reproducible generated reverse-engineering output
+isil/
+tools/unitypy/venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local/editor
+.idea/
+.vscode/
+*.swp
+*~
