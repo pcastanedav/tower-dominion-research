@@ -2,14 +2,9 @@
 
 ## Highest priority
 
-2. Map all ordinary doctrines that change reward probability or generate rewards, including exact live effects for:
-   - D1_19 Military academy;
-   - D2_06 Strict obedience;
-   - D2_40 Focused militarization;
-   - any additional T2/T3 Doctrine-weight modifiers.
-3. Resolve Focused Militarization's exact building-Doctrine multiplier delta and whether its immediate draft observes the new multiplier before drawing.
-3. Integrate ordinary-doctrine availability restrictions and reward/weight-changing doctrines into the evolving-run model and add regression tests without breaking the established baseline.
-4. Re-run cleanup and D7 experiments. Existing absolute probabilities that omit reward/weight-changing state transitions are provisional.
+1. Resolve Focused Militarization's exact building-Doctrine multiplier delta and whether its immediate draft observes the new multiplier before drawing.
+2. Integrate ordinary-doctrine availability restrictions and reward/weight-changing doctrines into the evolving-run model and add regression tests without breaking the established baseline.
+3. Re-run cleanup and D7 experiments. Existing absolute probabilities that omit reward/weight-changing state transitions are provisional.
 
 ## Eleanor
 

@@ -293,3 +293,18 @@ Faction restrictions remain part of ordinary-doctrine eligibility, but they do n
 This corrects the earlier provisional assumption that some ordinary doctrines expose linked ordinary successors. Ordinary doctrines can still cause nonlinear state transitions through reward-generating and weight-changing effects; those effects are separate from availability dependencies.
 
 The reproducible serialized extraction is retained in `tools/extract_ordinary_doctrines.py` and `maps/ordinary-doctrines.json`.
+
+## 15. Ordinary doctrines that change reward state
+
+The complete 118-asset effect-reference scan identifies eight ordinary doctrines with direct reward-generation or reward-weight effects:
+
+- `D1_15` — `SpecialRewardOnDemandBlueprint`: one immediate Blueprint special reward.
+- `D1_19` — `DoctrinesTier2Weight6`: +6 to the T2 Doctrine rarity-weight layer.
+- `D2_01` — `BlueprintTier2Weight10`: +10 to the T2 Blueprint rarity-weight layer.
+- `D2_06` — two references to `SpecialRewardOnDemandDoctrine`: two immediate Doctrine special rewards.
+- `D2_10` — two references to `SpecialRewardOnDemandBlueprint`: two immediate Blueprint special rewards.
+- `D2_40` — `DroprateTBDoctrine4` followed by `SpecialRewardOnDemandDoctrineAmong2`: +4 to the global building-Doctrine multiplier and one immediate two-candidate Doctrine draft.
+- `D2_43` — three references to `SpecialRewardOnDemandBlueprintRandomIrregularPlatform`: three immediate random-irregular-platform Blueprint rewards.
+- `D3_11` — `BlueprintTier3Weight5`: +5 to the T3 Blueprint rarity-weight layer.
+
+No other ordinary D1/D2/D3 SkillData asset references a GameEffectData whose identity changes reward weights or creates a special reward. This classification is based on the complete serialized ordinary-doctrine asset set, not a name-selected subset.
