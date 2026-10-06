@@ -2,8 +2,7 @@
 
 ## Highest priority
 
-1. Integrate ordinary-doctrine availability restrictions and reward/weight-changing doctrines into the evolving-run model and add regression tests without breaking the established baseline.
-2. Re-run cleanup and D7 experiments. Existing absolute probabilities that omit reward/weight-changing state transitions are provisional.
+1. Re-run cleanup and D7 experiments using the integrated ordinary-doctrine state transitions; replace the old provisional absolute probabilities.
 
 ## Eleanor
 
@@ -37,6 +36,6 @@
 
 ## Important simulation caveat
 
-Temporary D7 experiments currently in `model/*_tmp.py` established strong directional effects for family concentration, delayed diversification, Tander, and Magel. Their **absolute completion probabilities are not authoritative** until ordinary availability restrictions and reward/weight-changing state transitions are represented.
+Temporary D7 experiments currently in `model/*_tmp.py` established strong directional effects for family concentration, delayed diversification, Tander, and Magel. Their **absolute completion probabilities are not authoritative** because they were produced before ordinary availability restrictions and reward/weight-changing state transitions were integrated.
 
 The qualitative result that unrelated doctrine-bearing families create persistent competition remains supported by the verified building-Doctrine eligibility/weight mechanics.

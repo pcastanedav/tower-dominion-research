@@ -27,9 +27,9 @@ Observed installed build characteristics during this analysis:
 
 ## Model status
 
-The current test suite passed **50/50 tests** before discovery of linked ordinary doctrines and ordinary doctrines that generate additional drafts. Those discoveries do not invalidate the verified baseline mechanics, but they do mean that evolving-run simulations which treat every ordinary doctrine as an independent `take -> disappear` item are incomplete.
+The current executable test suite passes **55/55 tests**. A misplaced early unittest.main() previously made direct execution report only 21 tests even though discovery contained 50; the harness now runs the complete suite directly.
 
-The next model revision must represent ordinary-doctrine dependency graphs and reward/weight-changing doctrine effects as state transitions.
+The evolving Doctrine model now uses real ordinary doctrine IDs and current-build faction/placement eligibility. Verified Doctrine-side state transitions are implemented for D1_19 Military Academy (+6 T2 weight), D2_06 Strict Obedience (two choose-1-among-3 drafts), and D2_40 Focused Militarization (+4 building-Doctrine multiplier before its choose-1-among-2 draft).
 
 ## Terminology
 

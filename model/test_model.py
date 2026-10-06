@@ -12,8 +12,8 @@ class RewardModelTests(unittest.TestCase):
  def test_fresh_family_weight(self):
   self.assertEqual(2*100*3,600); self.assertEqual(2*100*12,2400)
  def test_deployment_ids_present(self):
-  p=dict(m.wave_weights('Lions',7)); self.assertEqual(p['ATT_I'],100); self.assertEqual(p['AMP_I'],100); self.assertEqual(p['ATT_II'],2); self.assertEqual(p['AMP_II'],2)
- def test_deployment_ii_absent_before_positive_weight(self): self.assertNotIn('AMP_II',dict(m.wave_weights('Lions',6)))
+  p=dict(m.wave_weights('Lions',7)); self.assertEqual(p['D1_44'],100); self.assertEqual(p['D1_45'],100); self.assertEqual(p['D2_41'],2); self.assertEqual(p['D2_42'],2)
+ def test_deployment_ii_absent_before_positive_weight(self): self.assertNotIn('D2_42',dict(m.wave_weights('Lions',6)))
  def test_faction_wave1_denominators(self):
   self.assertEqual(sum(w for _,w in m.wave_weights('Iron',1)),3900); self.assertEqual(sum(w for _,w in m.wave_weights('Lions',1)),3800); self.assertEqual(sum(w for _,w in m.wave_weights('Pargan',1)),3400)
  def test_denshikova_family_cost(self):
@@ -70,8 +70,6 @@ class WaveStateTests(unittest.TestCase):
   self.assertEqual(odd['guaranteed_special_doctrine_candidates'],0); self.assertEqual(even['guaranteed_special_doctrine_candidates'],3)
   self.assertAlmostEqual(even['expected_total_doctrine_candidates'],4.74)
 
-if __name__=='__main__': unittest.main(verbosity=2)
-
 class SamplingTests(unittest.TestCase):
  def test_sampling_has_no_replacement(self):
   import random
@@ -81,12 +79,12 @@ class SamplingTests(unittest.TestCase):
   import random
   self.assertEqual(m.sample_doctrines(random.Random(1),[('A',1)],0),[])
  def test_deployment_target_boundary(self):
-  self.assertEqual(set(m.deployment_targets(6)),{'AMP_I','ATT_I'})
-  self.assertEqual(set(m.deployment_targets(7)),{'AMP_I','ATT_I','AMP_II','ATT_II'})
+  self.assertEqual(set(m.deployment_targets(6)),{'D1_44','D1_45'})
+  self.assertEqual(set(m.deployment_targets(7)),{'D1_44','D1_45','D2_41','D2_42'})
 
 class PolicyInvariantTests(unittest.TestCase):
  def test_t1_removal_is_heavier_early_than_t2(self):
-  p=dict(m.wave_weights('Lions',7)); self.assertGreater(p['AMP_I'],p['AMP_II'])
+  p=dict(m.wave_weights('Lions',7)); self.assertGreater(p['D1_45'],p['D2_42'])
  def test_more_families_increase_denominator(self):
   for w in (1,7,12,20,35):
    a=sum(x[1] for x in m.wave_weights('Lions',w,0,3)); b=sum(x[1] for x in m.wave_weights('Lions',w,1,3)); self.assertGreater(b,a)
@@ -188,3 +186,39 @@ class TBProgressionTests(unittest.TestCase):
  def test_family_fully_exhausted(self):
   owned={f'TB0D{i}' for i in range(1,8)}
   self.assertEqual(m.tb_active_nodes(0,owned),[])
+
+
+class OrdinaryDoctrineStateTests(unittest.TestCase):
+ def test_real_identity_pool_preserves_verified_counts(self):
+  self.assertEqual(tuple(len(m.ordinary_doctrine_ids('Lions',t)) for t in (1,2,3)),(38,37,24))
+  self.assertEqual(sum(w for _,w in m.wave_weights('Lions',1)),3800)
+ def test_d1_43_requires_cb19(self):
+  self.assertNotIn('D1_43',dict(m.wave_weights('Lions',1)))
+  self.assertIn('D1_43',dict(m.wave_weights('Lions',1,placed_towers={'CB19'})))
+ def test_military_academy_adds_six_t2_weight(self):
+  import random
+  st=m.DoctrineRunState()
+  self.assertEqual(dict(m.state_doctrine_pool(st,7))['D2_01'],2)
+  m.acquire_doctrine(st,'D1_19',random.Random(1),7)
+  self.assertEqual(st.t2_bonus,6)
+  self.assertEqual(dict(m.state_doctrine_pool(st,7))['D2_01'],8)
+ def test_focused_militarization_updates_multiplier_before_draft(self):
+  import random
+  st=m.DoctrineRunState(placed_families={0})
+  ev=m.acquire_doctrine(st,'D2_40',random.Random(3),7,policy='none')
+  self.assertEqual(st.tb_mult,7)
+  self.assertEqual(ev[1],('tb_mult',7))
+  self.assertEqual(ev[2][0],'draft')
+  # Draft candidates were sampled after the +4 state transition.
+  self.assertEqual(dict(m.state_doctrine_pool(st,7))['TB0D1'],700)
+ def test_strict_obedience_creates_two_three_candidate_drafts(self):
+  import random
+  st=m.DoctrineRunState()
+  ev=m.acquire_doctrine(st,'D2_06',random.Random(9),12,policy='none')
+  drafts=[x[1] for x in ev if x[0]=='draft']
+  self.assertGreaterEqual(len(drafts),2)
+  self.assertEqual(len(drafts[0]),3)
+  self.assertEqual(len(drafts[1]),3)
+
+if __name__=='__main__':
+ unittest.main(verbosity=2)

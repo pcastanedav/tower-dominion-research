@@ -10,9 +10,9 @@ Replace the independent ordinary-doctrine approximation with verified current-bu
    Map all ordinary doctrines that modify reinforcement/reward probability or generate additional drafts, including exact live effects where source evidence permits.
 3. **Focused Militarization exact behavior** — complete
    Resolve its building-doctrine multiplier delta and determine whether its immediate draft observes the changed multiplier.
-4. **Model integration** — active
+4. **Model integration** — complete
    Represent dependencies and reward-changing doctrines as state transitions and add regression tests.
-5. **Experiment refresh** — pending
+5. **Experiment refresh** — active
    Re-run cleanup/D7 experiments against the corrected model and update strategy conclusions.
 
 ## Constraints

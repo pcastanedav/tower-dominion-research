@@ -1,5 +1,7 @@
-import random, math
+import random, math, json
+from pathlib import Path
 from collections import Counter
+from dataclasses import dataclass, field
 OUTER=[('supply',10),('recon',4),('bp',57),('doctrine',29)]
 Q={'supply':[(100,64),(200,35),(500,1)],'recon':[(25,64),(50,35),(75,1)]}
 def pick_weighted(items,rng):
@@ -38,20 +40,34 @@ def generate(rng,dweights,bweights):
   # approximate game regeneration by restarting entire candidate set; track frequency only.
   # exact local-card regeneration will be implemented after measuring whether correction matters.
   return cards,True
-def wave_weights(faction,w,tb_families=0,tb_mult=3):
- counts={'Iron':(39,42,26),'Lions':(38,37,24),'Pargan':(34,38,19)}[faction]
- r2=max(0,-10+2*(w-1)); r3=max(0,-20+2*(w-1))
- pool=[]
- for tier,(n,wt) in enumerate(zip(counts,(100,r2,r3)),1):
-  for i in range(n): pool.append((f'T{tier}_{i}',wt))
- # overwrite known deployment identities within counts: one target T1, second target T1; T2 pair
- pool[0]=('ATT_I',100); pool[1]=('AMP_I',100)
- off=counts[0]
- if counts[1]>=2: pool[off]=('ATT_II',r2); pool[off+1]=('AMP_II',r2)
- pool=[x for x in pool if x[1]>0]
- for f in range(tb_families):
-  pool += [(f'TB{f}A',100*tb_mult),(f'TB{f}B',100*tb_mult)]
- return pool
+_FACTION_TAG = {"Iron":"Faction1","Lions":"Faction2","Pargan":"Faction3"}
+_ORDINARY_DATA = json.loads((Path(__file__).resolve().parent.parent/"maps"/"ordinary-doctrines.json").read_text())
+
+def ordinary_tier_weight(tier,w,t2_bonus=0):
+    if tier==1:return 100
+    if tier==2:return max(0,-10+2*(w-1)+t2_bonus)
+    if tier==3:return max(0,-20+2*(w-1))
+    raise ValueError(tier)
+
+def ordinary_doctrine_ids(faction,tier,placed_towers=()):
+    tag=_FACTION_TAG[faction]; placed=set(placed_towers); out=[]
+    for x in _ORDINARY_DATA:
+        if not x["code"].startswith(f"D{tier}_"):continue
+        fs=[q["faction"] for q in x["restrictions_or"] if q["type"]==1 and q["faction"]]
+        if fs and tag not in fs:continue
+        if x["code"]=="D1_43" and "CB19" not in placed:continue
+        out.append(x["code"])
+    return tuple(out)
+
+def wave_weights(faction,w,tb_families=0,tb_mult=3,t2_bonus=0,placed_towers=()):
+    pool=[]
+    for tier in (1,2,3):
+        wt=ordinary_tier_weight(tier,w,t2_bonus)
+        if wt>0:pool.extend((name,wt) for name in ordinary_doctrine_ids(faction,tier,placed_towers))
+    for f in range(tb_families):
+        pool += [(f"TB{f}A",100*tb_mult),(f"TB{f}B",100*tb_mult)]
+    return pool
+
 if __name__=='__main__':
  rng=random.Random(123456); bp=[(f'BP{i}',1) for i in range(11)] # W1 faction pool T1 count for Iron/Pargan; duplicate rate sensitivity small
  N=300000; dup=0; hist=Counter(); hit=Counter()
@@ -82,18 +98,17 @@ def simulate_target_offer(faction,w,target_names,tb_families=0,tb_mult=3,n=10000
     return hits/n
 
 def deployment_targets(w):
-    x=['AMP_I','ATT_I']
-    if w>=7:x += ['AMP_II','ATT_II']
+    x=['D1_45','D1_44']
+    if w>=7:x += ['D2_42','D2_41']
     return x
 
 def removal_snapshot(faction,w,remove_t1=0,remove_t2=0,remove_t3=0,tb_families=0,tb_mult=3):
-    pool=wave_weights(faction,w,tb_families,tb_mult); protected={'AMP_I','ATT_I','AMP_II','ATT_II'}; removed=[]
+    pool=wave_weights(faction,w,tb_families,tb_mult); protected=set(deployment_targets(w)); removed=[]
     quotas={1:remove_t1,2:remove_t2,3:remove_t3}
     for tier in (1,2,3):
-        prefix=f'T{tier}_'
         for name,wt in pool:
             if quotas[tier]<=0: break
-            if name.startswith(prefix) and name not in protected:
+            if name.startswith(f'D{tier}_') and name not in protected:
                 removed.append(name); quotas[tier]-=1
     return removed
 
@@ -221,9 +236,9 @@ def policy_monte_carlo_fast(n=10000,**kwargs):
             'checkpoints':{w:v/n for w,v in cp.items()}}
 
 def doctrine_tier(name):
-    if name in ('AMP_I','ATT_I') or name.startswith('T1_'): return 1
-    if name in ('AMP_II','ATT_II') or name.startswith('T2_'): return 2
-    if name.startswith('T3_'): return 3
+    if name.startswith('D1_') or name in ('AMP_I','ATT_I') or name.startswith('T1_'): return 1
+    if name.startswith('D2_') or name in ('AMP_II','ATT_II') or name.startswith('T2_'): return 2
+    if name.startswith('D3_') or name.startswith('T3_'): return 3
     return 0
 
 def doctrine_weight_at_wave(name,w,tb_mult=3):
@@ -421,14 +436,14 @@ def dynamic_monte_carlo(n=1000,**kwargs):
             'mean_tb_taken':sum(tb)/n,'mean_ordinary_removed':sum(ordinary)/n}
 
 _ORDINARY_CACHE={}
-def cached_ordinary_pool(faction,wave):
-    key=(faction,wave)
-    if key not in _ORDINARY_CACHE:_ORDINARY_CACHE[key]=tuple(wave_weights(faction,wave,0,3))
+def cached_ordinary_pool(faction,wave,t2_bonus=0,placed_towers=()):
+    key=(faction,wave,t2_bonus,tuple(sorted(placed_towers)))
+    if key not in _ORDINARY_CACHE:_ORDINARY_CACHE[key]=tuple(wave_weights(faction,wave,0,3,t2_bonus,placed_towers))
     return _ORDINARY_CACHE[key]
 
-def dynamic_doctrine_pool_fast(faction,wave,removed=(),family_count=0,tb_owned=(),tb_mult=3,placed_families=None):
+def dynamic_doctrine_pool_fast(faction,wave,removed=(),family_count=0,tb_owned=(),tb_mult=3,placed_families=None,t2_bonus=0,placed_towers=()):
     rem=removed if isinstance(removed,set) else set(removed)
-    pool=[x for x in cached_ordinary_pool(faction,wave) if x[0] not in rem]
+    pool=[x for x in cached_ordinary_pool(faction,wave,t2_bonus,placed_towers) if x[0] not in rem]
     owned=tb_owned if isinstance(tb_owned,set) else set(tb_owned)
     wt=100*tb_mult
     # Legacy family_count means families 0..N-1 are currently placed.
@@ -455,8 +470,8 @@ COMMANDER_REINFORCEMENT_RULES = {
     'magel':    {'card_count':3, 'doctrine_draft_size':3, 'doctrine_draft_cadence':2},
 }
 
-def dynamic_doctrine_screen(rng,faction,wave,removed=(),family_count=0,tb_owned=(),tb_mult=3,placed_families=None,card_count=3):
-    pool=dynamic_doctrine_pool_fast(faction,wave,removed,family_count,tb_owned,tb_mult,placed_families)
+def dynamic_doctrine_screen(rng,faction,wave,removed=(),family_count=0,tb_owned=(),tb_mult=3,placed_families=None,card_count=3,t2_bonus=0,placed_towers=()):
+    pool=dynamic_doctrine_pool_fast(faction,wave,removed,family_count,tb_owned,tb_mult,placed_families,t2_bonus,placed_towers)
     candidates=card_count*2
     k=sum(rng.random()<.29 for _ in range(candidates))
     doctrines=sample_doctrines(rng,pool,k)
@@ -474,31 +489,33 @@ def magel_draft_due(wave):
     return cadence>0 and wave%cadence==0
 
 def run_commander_dynamic_policy(faction='Lions',waves=35,commander='standard',policy='aggressive',family_schedule=None,seed=1):
-    """Sequential Doctrine model with commander-specific reinforcement mechanics.
-    Magel's separate draft is generated after the normal reward updates same-wave state."""
+    """Sequential Doctrine model with commander mechanics and verified ordinary state effects."""
     if commander not in COMMANDER_REINFORCEMENT_RULES: raise ValueError(commander)
-    rng=random.Random(seed); removed=set(); tb_owned=set(); history=[]
+    rng=random.Random(seed); history=[]
     family_schedule=family_schedule or (lambda w:1)
     rules=COMMANDER_REINFORCEMENT_RULES[commander]
+    state=DoctrineRunState(faction=faction)
     for w in range(1,waves+1):
-        fam=family_schedule(w); placed=set(range(fam))
-        cards=dynamic_doctrine_screen(rng,faction,w,removed,tb_owned=tb_owned,placed_families=placed,card_count=rules['card_count'])
-        targets=[x for x in deployment_targets(w) if x not in removed]
-        taken,_=choose_doctrine_card_v2(cards,policy,rng,targets,w,3)
+        fam=family_schedule(w); state.placed_families=set(range(fam))
+        cards=dynamic_doctrine_screen(
+            rng,faction,w,state.ordinary_owned,tb_owned=state.tb_owned,tb_mult=state.tb_mult,
+            placed_families=state.placed_families,card_count=rules['card_count'],
+            t2_bonus=state.t2_bonus,placed_towers=state.placed_towers)
+        targets=[x for x in deployment_targets(w) if x not in state.ordinary_owned]
+        taken,_=choose_doctrine_card_v2(cards,policy,rng,targets,w,state.tb_mult)
+        effect_events=[]
         for x in taken:
-            (tb_owned if x.startswith('TB') else removed).add(x)
+            effect_events.extend(acquire_doctrine(state,x,rng,w,policy))
         special=[]; special_taken=None
         if commander=='magel' and magel_draft_due(w):
-            special=magel_doctrine_draft(rng,faction,w,removed,tb_owned=tb_owned,placed_families=placed)
-            # Doctrine-focused policy: desired family first; otherwise ordinary cleanup if requested.
+            special=state_doctrine_draft(rng,state,w,COMMANDER_REINFORCEMENT_RULES['magel']['doctrine_draft_size'])
             desired=[x for x in special if x.startswith('TB0D')]
             if desired: special_taken=rng.choice(desired)
-            elif policy=='aggressive': special_taken=max(special,key=lambda x:doctrine_weight_at_wave(x,w,3)) if special else None
+            elif policy=='aggressive': special_taken=_choose_special_doctrine(special,policy,rng,w,state)
             elif special: special_taken=rng.choice(special)
-            if special_taken:
-                (tb_owned if special_taken.startswith('TB') else removed).add(special_taken)
-        history.append((w,cards,taken,special,special_taken,set(tb_owned),set(removed)))
-    return {'tb_owned':tb_owned,'removed':removed,'history':history}
+            if special_taken:effect_events.extend(acquire_doctrine(state,special_taken,rng,w,policy))
+        history.append((w,cards,taken,special,special_taken,set(state.tb_owned),set(state.ordinary_owned),tuple(effect_events),state.tb_mult,state.t2_bonus))
+    return {'tb_owned':state.tb_owned,'removed':state.ordinary_owned,'history':history,'state':state}
 
 def doctrine_pool_snapshot(faction,wave,removed=(),tb_owned=(),tb_mult=3,placed_families=None,desired_family=0):
     """Exact ticket composition of the currently eligible Doctrine lottery.
@@ -527,3 +544,58 @@ def commander_wave_opportunities(commander,wave):
 def wave_state(faction,wave,commander='standard',removed=(),tb_owned=(),tb_mult=3,placed_families=None,desired_family=0):
     return {'pool':doctrine_pool_snapshot(faction,wave,removed,tb_owned,tb_mult,placed_families,desired_family),
             'opportunities':commander_wave_opportunities(commander,wave)}
+
+
+@dataclass
+class DoctrineRunState:
+    """Mutable current-run Doctrine state for verified ordinary Doctrine-side effects."""
+    faction: str = "Lions"
+    ordinary_owned: set = field(default_factory=set)
+    tb_owned: set = field(default_factory=set)
+    tb_mult: int = 3
+    t2_bonus: int = 0
+    placed_families: set = field(default_factory=set)
+    placed_towers: set = field(default_factory=set)
+
+def state_doctrine_pool(state,wave):
+    return dynamic_doctrine_pool_fast(
+        state.faction,wave,removed=state.ordinary_owned,tb_owned=state.tb_owned,
+        tb_mult=state.tb_mult,placed_families=state.placed_families,
+        t2_bonus=state.t2_bonus,placed_towers=state.placed_towers)
+
+def state_doctrine_draft(rng,state,wave,size):
+    """Generate a Doctrine-only special draft from current state, without replacement."""
+    return sample_doctrines(rng,state_doctrine_pool(state,wave),size)
+
+def _choose_special_doctrine(candidates,policy,rng,wave,state):
+    if not candidates:return None
+    if policy=="aggressive":
+        weights=dict(state_doctrine_pool(state,wave))
+        return max(candidates,key=lambda x:weights.get(x,0))
+    return rng.choice(candidates)
+
+def acquire_doctrine(state,name,rng,wave,policy="aggressive"):
+    """Acquire a doctrine and immediately resolve verified ordinary Doctrine-side effects."""
+    events=[("acquire",name)]
+    if name.startswith("TB"):
+        if name not in state.tb_owned:state.tb_owned.add(name)
+        return events
+    if name in state.ordinary_owned:return events
+    state.ordinary_owned.add(name)
+    if name=="D1_19":
+        state.t2_bonus += 6
+        events.append(("t2_bonus",state.t2_bonus))
+    elif name=="D2_40":
+        state.tb_mult += 4
+        events.append(("tb_mult",state.tb_mult))
+        draft=state_doctrine_draft(rng,state,wave,2)
+        events.append(("draft",tuple(draft)))
+        chosen=_choose_special_doctrine(draft,policy,rng,wave,state)
+        if chosen is not None:events.extend(acquire_doctrine(state,chosen,rng,wave,policy))
+    elif name=="D2_06":
+        for _ in range(2):
+            draft=state_doctrine_draft(rng,state,wave,3)
+            events.append(("draft",tuple(draft)))
+            chosen=_choose_special_doctrine(draft,policy,rng,wave,state)
+            if chosen is not None:events.extend(acquire_doctrine(state,chosen,rng,wave,policy))
+    return events
