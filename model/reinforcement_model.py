@@ -599,3 +599,33 @@ def acquire_doctrine(state,name,rng,wave,policy="aggressive"):
             chosen=_choose_special_doctrine(draft,policy,rng,wave,state)
             if chosen is not None:events.extend(acquire_doctrine(state,chosen,rng,wave,policy))
     return events
+
+
+def exact_target_inclusion(pool,k,targets):
+    """Exact P(at least one target) in k weighted draws without replacement.
+
+    Pool entries are (identity, integer weight). Zero-weight entries are ignored.
+    Dynamic programming tracks only non-target subsets already drawn; any target
+    draw enters the absorbing success state.
+    """
+    pool=tuple((n,w) for n,w in pool if w>0)
+    targets=frozenset(targets)
+    if k<=0 or not targets or not pool:return 0.0
+    k=min(k,len(pool))
+    total=sum(w for _,w in pool)
+    non=[(n,w) for n,w in pool if n not in targets]
+    # Probability mass for target-free paths, keyed by tuple of chosen non-target indices.
+    dp={():1.0}
+    for _ in range(k):
+        nxt={}
+        for chosen,p in dp.items():
+            used=sum(non[i][1] for i in chosen)
+            denom=total-used
+            chosen_set=set(chosen)
+            for i,(_,w) in enumerate(non):
+                if i in chosen_set:continue
+                key=tuple(sorted(chosen+(i,)))
+                nxt[key]=nxt.get(key,0.0)+p*w/denom
+        dp=nxt
+        if not dp:break
+    return 1.0-sum(dp.values())

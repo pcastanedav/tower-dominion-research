@@ -222,3 +222,19 @@ class OrdinaryDoctrineStateTests(unittest.TestCase):
 
 if __name__=='__main__':
  unittest.main(verbosity=2)
+
+
+class ExactProbabilityTests(unittest.TestCase):
+ def test_zero_draws_and_empty_targets(self):
+  self.assertEqual(m.exact_target_inclusion([("A",1)],0,{"A"}),0)
+  self.assertEqual(m.exact_target_inclusion([("A",1)],1,set()),0)
+ def test_single_draw_weight_ratio(self):
+  self.assertAlmostEqual(m.exact_target_inclusion([("A",2),("B",3)],1,{"A"}),2/5)
+ def test_two_draw_weighted_enumeration(self):
+  # Miss A only via B then C or C then B.
+  expected=1-((3/10)*(5/7)+(5/10)*(3/5))
+  self.assertAlmostEqual(m.exact_target_inclusion([("A",2),("B",3),("C",5)],2,{"A"}),expected)
+ def test_multiple_targets(self):
+  self.assertAlmostEqual(m.exact_target_inclusion([("A",2),("B",3),("C",5)],1,{"A","B"}),.5)
+ def test_draw_all_guarantees_target(self):
+  self.assertAlmostEqual(m.exact_target_inclusion([("A",2),("B",3),("C",5)],3,{"A"}),1.0)
