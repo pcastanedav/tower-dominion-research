@@ -12,7 +12,7 @@ Replace the independent ordinary-doctrine approximation with verified current-bu
    Resolve its building-doctrine multiplier delta and determine whether its immediate draft observes the changed multiplier.
 4. **Model integration** — complete
    Represent dependencies and reward-changing doctrines as state transitions and add regression tests.
-5. **Experiment refresh** — active
+5. **Experiment refresh** — complete
    Re-run cleanup/D7 experiments against the corrected model and update strategy conclusions.
 
 ## Constraints

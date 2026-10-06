@@ -2,7 +2,6 @@
 
 ## Highest priority
 
-1. Re-run cleanup and D7 experiments using the integrated ordinary-doctrine state transitions; replace the old provisional absolute probabilities.
 
 ## Eleanor
 
@@ -36,6 +35,6 @@
 
 ## Important simulation caveat
 
-Temporary D7 experiments currently in `model/*_tmp.py` established strong directional effects for family concentration, delayed diversification, Tander, and Magel. Their **absolute completion probabilities are not authoritative** because they were produced before ordinary availability restrictions and reward/weight-changing state transitions were integrated.
+The D7 experiments have been refreshed against the stateful ordinary-Doctrine model at 5,000 trials per scenario. Their results are valid simulation outputs under the documented model assumptions, but they are not exact game probabilities while duplicate-card regeneration and some commander ordering/proposal details remain unresolved.
 
-The qualitative result that unrelated doctrine-bearing families create persistent competition remains supported by the verified building-Doctrine eligibility/weight mechanics.
+The qualitative result that unrelated doctrine-bearing families create persistent competition remains supported by both verified building-Doctrine eligibility/weight mechanics and the refreshed simulations.
