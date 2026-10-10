@@ -1,0 +1,62 @@
+SECTION 8 — CONCLUSIONS
+Status: draft for editorial review.
+Source: SIMULATION-1000-RUNS.json, 1,000 runs per scenario.
+
+The simulations demonstrate substantial Blueprint acquisition growth from Mission Control chains, particularly after the 3A upgrade becomes available at Wave 40. Timing and reliability of acquisition matter as much as the eventual chain size.
+
+8.1. Main findings
+
+LIONS — STRONGEST OVERALL ACQUISITION
+Lions leads in average Mission Control count at every evaluated checkpoint. At Wave 63 it averages 18.51 MCs versus 8.31 for Baseline, and has the highest probabilities of reaching at least 10 or 20 MCs. Its additional Blueprint quantities create a direct acquisition advantage.
+
+ELEONOR — STRONG EARLY RELIABILITY
+Eleonor reaches at least ten MCs by Wave 63 in 58.1% of natural-acquisition runs, compared with 51.2% for Tander and 48.1% for Magel. Her extra Blueprint drafts help establish the chain without depending on specific supporting Doctrines.
+
+TANDER — CONSISTENT REINFORCEMENT ADVANTAGE
+Tander's fourth reinforcement card improves reward selection. This yields higher mean counts and threshold probabilities than Baseline throughout the simulation, though it does not lead the principal scenario comparisons.
+
+MAGEL — INCREASING LATE-GAME STRENGTH
+Magel's additional Doctrine drafts produce an indirect acquisition advantage. He begins behind the other scenarios at Wave 40, overtakes Tander in mean count by Wave 60, and overtakes Eleonor by Wave 83. At Wave 103 Magel averages 46.17 MCs versus Eleonor's 40.87. However, Eleonor retains a slightly higher probability of reaching 20 MCs at Wave 103.
+
+8.2. Wave 63 remains the primary strategic checkpoint
+
+Relative scenario advantages depend on the evaluation wave. High late-game counts may not help overcome the Wave 63–64 increase in enemy wave size.
+
+Wave 63 threshold probabilities are therefore more relevant to the report's main question than maximum late-game chain sizes.
+
+The simulation does not establish the number of MCs required to survive Wave 63. It measures how frequently different acquisition levels are reached by then.
+
+8.3. Amplifiers contribute to chain development
+
+Amplifiers increase Mission Control Blueprint rarity weight. Guaranteeing the Tier I Amplifier Doctrine from Wave 1 raises average MC counts for all five scenarios.
+
+Lions has the largest absolute gain in mean MC count at Wave 63. Eleonor has the largest gain in the probability of reaching at least ten. Magel has the smallest incremental gain, consistent with his additional natural Doctrine opportunities.
+
+The comparison does not independently isolate each Amplifier's contribution or acquisition timing.
+
+8.4. Implications for faction and commander selection
+
+Highest average MC count at Wave 63: Lions.
+Highest probability of >=10 MCs at Wave 63: Lions.
+Highest probability of >=20 MCs at Wave 63: Lions.
+Strongest non-Lions result at >=10 MCs by Wave 63: Eleonor.
+Highest late-game mean among non-Lions scenarios: Magel.
+Smallest incremental gain from guaranteed Tier I Doctrine: Magel.
+
+These rankings concern acquisition only, not combat effectiveness, actual survival, or overall scenario strength.
+
+8.5. Limitations and future work
+
+Important simplifications include immediate MC construction, the assumption that 3A upgrades are affordable beginning at Wave 40, and omission of combat survival and complete resource management.
+
+Pit, Reactive, and Calculator effects are not included.
+
+Future work could test Amplifier acquisition timing, alternative reward-selection policies, resource constraints, and sensitivity to the Wave 40 upgrade assumption. Simulation parameters should not be tuned to force agreement with observed gameplay.
+
+8.6. Final conclusion
+
+Lions is the strongest Mission Control acquisition scenario in the current simulation. Eleonor offers strong pre-Wave-63 acquisition reliability, while Magel becomes more competitive over longer runs. Tander consistently improves on Baseline through additional reinforcement choices.
+
+The principal strategic finding is that establishing the chain early enough matters more than achieving a high MC count late in the run.
+
+These simulations quantify acquisition potential under specified assumptions; they do not establish a direct relationship between MC count and survival.

@@ -1,0 +1,118 @@
+SECTION 2 — HOW THE SIMULATION WORKS
+Status: approved editorial draft; sample count and scenario roster updated.
+
+2.1. Overview of the simulation model
+
+The analysis uses a Monte Carlo simulation to reproduce the acquisition of Mission Controls over a series of waves.
+
+Rather than assuming a fixed number of Mission Controls will be obtained, the simulation generates reinforcement rewards and Blueprint drafts using weighted probabilities derived from the game's data and the mechanics incorporated into the model.
+
+Each simulated run begins at Wave 1 and progresses through Wave 103.
+
+During each wave, the simulation accounts for the available reward opportunities, the current Blueprint weights, acquired Doctrines, and the effects of previously constructed Mission Controls.
+
+As the run progresses, the available rewards and their relative probabilities can change.
+
+To compare strategies, each scenario is simulated 1,000 times. The resulting data allows us to examine average acquisition rates and the frequency with which different Mission Control thresholds are reached.
+
+The model represents a player actively pursuing Mission Controls. It does not attempt to simulate a player selecting reinforcement rewards randomly.
+
+2.2. Blueprint acquisition and reinforcement
+
+Mission Control is a Tier 3 Blueprint that can appear in ordinary reinforcement rewards and certain additional Blueprint drafts.
+
+The simulation uses a pool of 32 ordinary reinforcement-eligible Blueprints, distributed across three tiers:
+
+Tier 1: 12
+Tier 2: 10
+Tier 3: 10
+
+Blueprints have individual rarity weights that change as the run progresses.
+
+Importantly, the probability of obtaining Mission Control is determined by its weight relative to the combined weights of other eligible rewards. Increasing Mission Control's weight does not guarantee that it will appear.
+
+Ordinary reinforcement presents three cards, each containing two rewards. The player selects one card and receives both rewards.
+
+The simulation uses a selection policy that prioritizes cards containing Mission Control. When Mission Control is unavailable, the model can favor rewards that support future acquisition, including an initial Amplifier.
+
+This creates a consistent strategy across simulated runs while preserving the randomness of the available rewards.
+
+2.3. Mission Control upgrades: 1A and 3A
+
+The simulation incorporates two upgrades that are central to the strategy.
+
+1A — Blueprint rarity increase
+
+Each constructed Mission Control contributes an additional two points of raw rarity weight to eligible Tier 2 and Tier 3 Blueprints.
+
+These contributions accumulate as additional Mission Controls are built.
+
+Because the bonus applies to every eligible Blueprint in those tiers, the effect is not equivalent to directly increasing Mission Control's selection probability by a fixed percentage.
+
+3A — Additional Blueprint drafts
+
+Each Mission Control upgraded along the 3A path provides two Blueprint drafts, with five Blueprint choices in each draft.
+
+When Mission Control appears among the available choices, the simulation selects it.
+
+This can produce additional Mission Controls, which can then be upgraded to generate further drafts.
+
+For the standard scenarios, the simulation assumes that the player can afford to upgrade all constructed Mission Controls to 3A beginning at Wave 40.
+
+This is an economic simplification intended to isolate the acquisition process. It does not mean that every actual run will have sufficient resources to upgrade every Mission Control at that point.
+
+2.4. Amplifiers and Blueprint probability
+
+Amplifiers can increase the rarity weight of a targeted building's Blueprint.
+
+When assigned to Mission Control, each Amplifier provides a +100% modifier to its Blueprint weight.
+
+These modifiers stack additively:
+
+0 Amplifiers: 1x
+1 Amplifier: 2x
+2 Amplifiers: 3x
+
+The model includes two independent Amplifier-granting Doctrines.
+
+An Amplifier can be acquired before the first Mission Control appears. In that situation, it can remain in inventory until a Mission Control is available to receive its effect.
+
+The standard simulation uses naturally acquired Amplifiers rather than assuming that the player begins with one.
+
+Although the model allows both Amplifiers to stack, its current reward-selection policy does not systematically prioritize obtaining the second Amplifier after the first has been acquired.
+
+2.5. Acquisition priorities and building assumptions
+
+The simulation follows a consistent acquisition strategy intended to support Mission Control growth.
+
+When a reinforcement reward offers Mission Control, the model prioritizes acquiring it. Mission Controls are then constructed immediately, activating their modeled upgrade effects.
+
+Before Wave 40, constructed Mission Controls contribute their 1A rarity-weight bonuses.
+
+Beginning at Wave 40, the model also applies their 3A effects and resolves the resulting Blueprint drafts, including any additional drafts generated through newly acquired Mission Controls.
+
+Amplifiers are likewise constructed and assigned to Mission Control when possible.
+
+This approach removes several practical constraints that may affect actual gameplay, particularly construction timing, building placement, and resource availability.
+
+It is therefore best understood as a model of acquisition potential under the specified strategy, rather than a complete simulation of a playable run.
+
+2.6. Simulation parameters and limitations
+
+Starting wave: 1
+Final wave: 103
+Simulations per scenario: 1,000
+3A upgrade availability: Wave 40
+Main evaluation point: Wave 63
+Amplifier acquisition: Natural, or Tier I Amplifier Doctrine owned from Wave 1
+Maximum modeled Amplifier effect: Two stacking Amplifiers
+Mission Control construction: Immediate
+Scenarios: Baseline, Lions, Eleonor, Tander, Magel
+
+The simulation does not currently account for every mechanic that could influence Mission Control acquisition.
+
+In particular, the Pit, Reactive, and Calculator effects remain outside the model. The simulation also does not reproduce complete construction costs, placement constraints, or the decision to hold additional Mission Controls in inventory.
+
+Some reward-generation details and faction- or commander-specific effects remain provisional.
+
+These limitations are important when interpreting the results. The simulation can estimate how frequently a particular Mission Control count is reached under its assumptions, but it cannot directly determine whether a player will survive Wave 63.

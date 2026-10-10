@@ -19,3 +19,10 @@ Measure how quickly and reliably valid Tower Dominion commander/faction categori
 - MC inventory in hand plus built is a chain maturity indicator, not proof of infinite propagation. Threshold is configurable.
 - Respect existing active exact-doctrine-probability Slice 2 blocker; this is a separate task, not a claim that blocker is resolved.
 - Do not push without explicit request.
+
+## Baseline policy clarification — 2026-10-08
+- **Pursue Amplifier from Wave 1**, simultaneously with acquiring Mission Control; do not delay Amplifier pursuit until after first MC.
+- The first acquired Amplifier is reserved for MC and targets MC once applicable. Amplifier's building-specific Blueprint/Doctrine weighting is distinct from MC 1A's global higher-tier Blueprint weighting.
+- Continue MC acquisition and 1A stacking throughout. From Wave 40, assume immediately affordable MC 3A, with two 1-of-5 drafts and eligible same-wave recursion; Wave 40 is an economic modeling assumption, not an enforced game unlock.
+- Baseline is this combined policy, not a phased MC-then-Amplifier policy. Comparisons may disable Amplifier pursuit or vary acquisition timing, but must label these as counterfactuals.
+- Do not assume pursuing Amplifier consumes or replaces Blueprint choices without evidence of the actual reinforcement choice policy; account for its selection opportunity cost explicitly if one exists.

@@ -1,0 +1,199 @@
+{
+  "description": "Reproduce original 1000-run faction/commander chain comparisons and evaluate the new dynamic continuous MC strategy separately.",
+  "trials": 1000,
+  "seed_start": 1,
+  "waves": 103,
+  "checkpoints": [
+    20,
+    35,
+    40,
+    50,
+    60,
+    63,
+    64,
+    83,
+    103
+  ],
+  "defaults": {
+    "faction": "Lions",
+    "tier3_wave": 40
+  },
+  "scenarios": [
+    {
+      "name": "Natural / Baseline",
+      "config": {}
+    },
+    {
+      "name": "Natural / Lions",
+      "config": {
+        "red": true
+      }
+    },
+    {
+      "name": "Natural / Eleanor",
+      "config": {
+        "eleanor": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "Natural / Tander",
+      "config": {
+        "tander": true
+      }
+    },
+    {
+      "name": "Natural / Magel",
+      "config": {
+        "magel": true
+      }
+    },
+    {
+      "name": "Saved Tier I / Baseline",
+      "config": {
+        "tier1_amplifier_doctrine_from_wave1": true
+      }
+    },
+    {
+      "name": "Saved Tier I / Lions",
+      "config": {
+        "red": true,
+        "tier1_amplifier_doctrine_from_wave1": true
+      }
+    },
+    {
+      "name": "Saved Tier I / Eleanor",
+      "config": {
+        "eleanor": true,
+        "tier1_amplifier_doctrine_from_wave1": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "Saved Tier I / Tander",
+      "config": {
+        "tander": true,
+        "tier1_amplifier_doctrine_from_wave1": true
+      }
+    },
+    {
+      "name": "Saved Tier I / Magel",
+      "config": {
+        "magel": true,
+        "tier1_amplifier_doctrine_from_wave1": true
+      }
+    },
+    {
+      "name": "Chain / Baseline",
+      "config": {
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "Chain / Lions",
+      "config": {
+        "red": true,
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "Chain / Eleanor",
+      "config": {
+        "eleanor": true,
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "Chain / Tander",
+      "config": {
+        "tander": true,
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "Chain / Magel",
+      "config": {
+        "magel": true,
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "scenario": "Natural / Lions",
+      "reference": "Natural / Baseline"
+    },
+    {
+      "scenario": "Natural / Eleanor",
+      "reference": "Natural / Baseline"
+    },
+    {
+      "scenario": "Natural / Tander",
+      "reference": "Natural / Baseline"
+    },
+    {
+      "scenario": "Natural / Magel",
+      "reference": "Natural / Baseline"
+    },
+    {
+      "scenario": "Chain / Lions",
+      "reference": "Natural / Lions"
+    },
+    {
+      "scenario": "Chain / Baseline",
+      "reference": "Natural / Baseline"
+    },
+    {
+      "scenario": "Chain / Eleanor",
+      "reference": "Natural / Eleanor"
+    },
+    {
+      "scenario": "Chain / Tander",
+      "reference": "Natural / Tander"
+    },
+    {
+      "scenario": "Chain / Magel",
+      "reference": "Natural / Magel"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+SECTION 4 — FACTION AND COMMANDER COMPARISON
+Status: approved.
+Source: SIMULATION-1000-RUNS.json. Natural Amplifier acquisition, 1,000 runs per scenario.
+
+4.1. Baseline scenario
+
+The baseline provides a reference for evaluating the benefits of faction- or commander-specific acquisition bonuses. It uses ordinary reinforcement rewards, standard Blueprint rarity progression, and the effects of acquired Mission Controls and Amplifiers.
+
+Without additional scenario rewards, the strategy depends heavily on obtaining its first few Mission Controls through the normal acquisition process.
+
+By Wave 40, the baseline averages 2.21 Mission Controls. Once 3A upgrades become available, the chain begins generating additional Blueprint opportunities, increasing the average to 7.15 by Wave 60 and 8.31 by Wave 63.
+
+The baseline demonstrates that recursive acquisition can develop without a faction or commander bonus, although it generally progresses more slowly than the other scenarios.
+
+4.2. Lions faction — Additional Blueprint acquisition
+
+The Lions faction provides additional Blueprint quantities through ordinary reinforcement rewards.
+
+This advantage directly supports Mission Control acquisition because a successful Blueprint reward can provide more than one copy.
+
+Unlike bonuses that primarily improve the probability of finding a particular reward, Lions can increase the number of Mission Controls obtained when a qualifying reward is selected.
+
+The effect is already evident by Wave 40, when Lions averages 4.81 Mission Controls, compared with 2.21 for the baseline.
+
+After the 3A transition, Lions maintains its lead, reaching an average of 16.19 Mission Controls at Wave 60 and 18.51 at Wave 63.
+
+Among the scenarios tested, Lions produces the highest average Mission Control count at every reported checkpoint.
+
+4.3. Eleonor — Additional Blueprint opportunities
+
+Eleonor receives an additional Blueprint draft every other wave, providing more opportunities to find Mission Control outside ordinary reinforcement.
+
+These extra drafts improve the frequency with which the player can encounter desirable Blueprints.
+
+Unlike Lions, Eleonor does not increase the quantity received from an ordinary Blueprint reward. Her advantage comes from having additional opportunities to select a Blueprint.
+
+Eleonor averages 3.48 Mission Controls at Wave 40, increasing to 11.34 at Wave 60 and 12.64 at Wave 63.
+
+Her performance places her second among the modeled scenarios at the main Wave 63 checkpoint.
+
+The additional Blueprint opportunities remain valuable after Wave 40 because newly acquired Mission Controls can contribute their own 3A drafts.
+
+4.4. Tander — Additional reinforcement choices
+
+Tander increases the number of ordinary reinforcement cards from three to four.
+
+This provides a broader selection of rewards at each reinforcement opportunity, improving the chance that a desirable card will be available.
+
+The advantage is not limited to Mission Control itself. Additional choices can also help the player acquire supporting rewards, including Amplifier-granting Doctrines.
+
+Tander averages 3.26 Mission Controls at Wave 40, 10.01 at Wave 60, and 11.41 at Wave 63.
+
+This places Tander ahead of the baseline throughout the simulation, although behind Lions and Eleonor at the main checkpoint.
+
+Tander's advantage is primarily one of selection flexibility: the player sees more alternatives without necessarily receiving more rewards from the chosen card.
+
+4.5. Magel — Additional Doctrine opportunities
+
+Magel receives an additional choose-one-of-three Doctrine draft every other wave.
+
+Unlike Eleonor's Blueprint drafts, these rewards do not directly offer Mission Control. Instead, Magel gains additional opportunities to acquire Doctrines that can improve the acquisition process.
+
+For this analysis, the most relevant rewards are the two Doctrines that grant Amplifiers.
+
+Obtaining an Amplifier earlier increases the number of subsequent Blueprint opportunities that can benefit from its weight bonus.
+
+This gives Magel a more indirect acquisition advantage than the other scenarios.
+
+At Wave 40, Magel averages 2.82 Mission Controls, placing him behind Lions, Eleonor, and Tander.
+
+However, his relative performance improves as the run progresses.
+
+By Wave 60, Magel averages 10.29 Mission Controls, slightly exceeding Tander's 10.01. At Wave 63, Magel reaches 12.09, compared with Tander's 11.41.
+
+Magel therefore demonstrates that additional Doctrine opportunities can support Mission Control growth even without directly increasing the number of Blueprint drafts.
+
+His modeled performance remains subject to uncertainty about the exact ordering and selection behavior of his additional Doctrine rewards.
+
+4.6. Comparative results
+
+AVERAGE MISSION CONTROLS ACQUIRED
+Natural Amplifier acquisition; 1,000 simulations per scenario.
+
+Scenario       Wave 40  Wave 60  Wave 63  Wave 83  Wave 103
+Baseline          2.21     7.15     8.31    16.69     27.31
+Lions             4.81    16.19    18.51    36.45     56.56
+Eleonor           3.48    11.34    12.64    26.01     40.87
+Tander            3.26    10.01    11.41    22.92     35.76
+Magel             2.82    10.29    12.09    27.43     46.17
+
+The results show two important patterns.
+
+First, the faction and commander bonuses produce differences well before Wave 40. These early advantages affect the number of Mission Controls available when 3A upgrades become accessible.
+
+Second, the relative performance of scenarios can change as the run progresses. Magel is initially behind Tander, but overtakes him before Wave 60 and extends that advantage during the later stages.
+
+At Wave 83, Magel averages 27.43 Mission Controls compared with Eleonor's 26.01. At Wave 103, Magel averages 46.17 compared with Eleonor's 40.87 and Tander's 35.76.
+
+These are average acquisition counts, not measures of combat effectiveness. A scenario producing more Mission Controls does not necessarily provide a higher probability of surviving a particular wave.
+
+SECTION 4 SUMMARY
+
+Lions provides the strongest Mission Control acquisition performance in the current model, benefiting from additional Blueprint quantities in ordinary reinforcement.
+
+Eleonor performs particularly well before Wave 63 through additional Blueprint opportunities.
+
+Tander improves the selection of ordinary reinforcement rewards, providing a consistent advantage over the baseline.
+
+Magel follows a different pattern. His additional Doctrine drafts support Amplifier acquisition, allowing his relative performance to improve over time. Although he starts behind Tander, he overtakes him by Wave 60 and exceeds Eleonor's average by Wave 83.
+
+The next section examines these differences at Wave 63, focusing not only on average Mission Control counts but also on the probability of reaching specific acquisition thresholds.

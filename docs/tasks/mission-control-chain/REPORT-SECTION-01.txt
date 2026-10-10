@@ -1,0 +1,50 @@
+SECTION 1 — INTRODUCTION
+Status: approved editorial draft.
+
+1.1. What is a Mission Control chain?
+
+A Mission Control chain is a strategy built around acquiring multiple Mission Control buildings and using their upgrades to increase the likelihood of obtaining additional Mission Controls.
+
+The strategy relies on two complementary effects.
+
+Mission Control's 1A upgrade increases the Blueprint rarity weights of Tier 2 and Tier 3 buildings. This improves the weight of Mission Control itself, although it also increases the weights of competing Blueprints in those tiers.
+
+The 3A upgrade provides two additional Blueprint drafts, each offering five choices. When Mission Control appears among those choices, the player can acquire another copy, construct it, and eventually use its own upgrades to continue the process.
+
+Once the player can repeatedly afford these upgrades, each additional Mission Control creates opportunities to acquire more. This recursive interaction is what we refer to as the Mission Control chain.
+
+1.2. Why pursue multiple Mission Controls?
+
+Mission Controls provide a way to increase the number of available buildings beyond what ordinary reinforcement rewards would typically provide.
+
+A successful chain can generate additional Blueprint opportunities, allowing the player to expand their defenses and acquire buildings that might otherwise be difficult to obtain.
+
+However, the strategy requires an initial investment. Mission Controls must first be acquired, constructed, and upgraded before their strongest acquisition effects become available.
+
+Consequently, the timing of the first few Mission Controls is particularly important. An early acquisition can provide more opportunities for growth, while a late acquisition leaves fewer waves for the chain to develop.
+
+1.3. The importance of Wave 63
+
+Around Waves 63–64, Tower Dominion introduces a significant increase in enemy wave size. This transition can make it considerably more difficult to continue a run without an established defensive advantage.
+
+For a Mission Control strategy, this creates a practical deadline.
+
+The objective is not simply to accumulate as many Mission Controls as possible by the end of a run. It is to establish a productive chain early enough that the additional buildings can contribute to the player's defenses before this difficulty increase.
+
+For that reason, this analysis treats Wave 63 as its principal evaluation point.
+
+Wave 60 serves as an earlier checkpoint, while Waves 83 and 103 are used to examine how the chain continues developing over a longer run.
+
+1.4. Objectives of the analysis
+
+This analysis investigates how Mission Control acquisition develops over time and how different scenarios influence that process.
+
+The principal questions are:
+- How quickly can a Mission Control chain become established?
+- How does access to 3A upgrades at Wave 40 change the acquisition rate?
+- How likely is a player following the modeled strategy to acquire 5, 10, or 20 Mission Controls by Wave 63?
+- How do Lions, Eleonor, Tander, and Magel compare with the baseline scenario?
+- How much do Amplifiers contribute to the growth of the chain?
+- How does Mission Control acquisition continue through Waves 83 and 103?
+
+The analysis focuses on the acquisition process rather than directly measuring combat effectiveness or the probability of surviving individual waves.

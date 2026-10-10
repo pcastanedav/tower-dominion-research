@@ -1,0 +1,99 @@
+SECTION 3 — ESTABLISHING A MISSION CONTROL CHAIN
+Source: 1,000 simulated runs per scenario, seeds 1–1000, Waves 1–103.
+Status: revised draft for editorial review. Numbers are modeled acquisition, not survival.
+
+3.1. Acquiring the first Mission Control
+
+The first Mission Control is an important milestone because it allows the player to begin accumulating the Blueprint rarity bonuses provided by its 1A upgrade.
+
+Before acquiring one, the player depends primarily on ordinary reinforcement rewards and any additional Blueprint opportunities available through the selected commander. Mission Control is a Tier 3 Blueprint; its rarity weight increases as waves progress.
+
+An Amplifier-granting Doctrine acquired before the first Mission Control can also help. Once Mission Control is available, the Amplifier can be assigned to it, increasing its Blueprint weight.
+
+The timing of these early acquisitions introduces considerable variation. Some runs establish the foundation of a chain early, while others reach Wave 40 with few or no Mission Controls.
+
+3.2. Growth before Wave 40
+
+Before Wave 40, the model permits Mission Controls to contribute their 1A rarity-weight bonus, but 3A Blueprint drafts are not yet available. Growth primarily depends on reinforcement rewards, faction- or commander-specific opportunities, and acquired Doctrines.
+
+Each constructed Mission Control adds two raw rarity-weight points to eligible Tier 2 and Tier 3 Blueprints. Because the bonus also affects competing Blueprints, it is not a fixed percentage increase to the probability of finding Mission Control.
+
+AVERAGE MC COUNT AT WAVE 40 — NATURAL ACQUISITION (1,000 RUNS)
+Baseline: 2.206
+Lions: 4.811
+Eleonor: 3.480
+Tander: 3.262
+Magel: 2.822
+
+These are end-of-Wave-40 counts, including the 3A drafts activated on Wave 40. They should not be described as counts immediately before the Wave-40 transition.
+
+Lions leads at this checkpoint, followed by Eleonor, Tander, Magel, and Baseline. The faction and commander bonuses influence different acquisition channels: Lions grants additional ordinary Blueprints; Eleonor provides periodic Blueprint drafts; Tander presents an additional reinforcement card; and Magel provides a choose-one-of-three Doctrine draft every other wave.
+
+3.3. The impact of 3A upgrades beginning at Wave 40
+
+Wave 40 is the principal transition in the modeled strategy. At this point, the simulation assumes all constructed Mission Controls can be upgraded to 3A, each generating two additional choose-one-of-five Blueprint drafts.
+
+If a draft offers Mission Control, the model selects and constructs it immediately, then applies its eligible upgrades. That new Mission Control can generate further drafts, creating a recursive acquisition sequence within the same wave.
+
+This assumption isolates acquisition potential: it does not account for the actual resources, construction space, or time required to build and upgrade every copy.
+
+3.4. Recursive Blueprint acquisition
+
+Consider a player with three constructed Mission Controls entering Wave 40. Upgrading all three to 3A produces six Blueprint drafts. If a draft offers another Mission Control, that new copy can produce two more drafts; subsequent successes may extend the sequence.
+
+Each branch can also end without finding Mission Control. Growth therefore remains probabilistic, depending on the number of drafts generated and Mission Control's weight relative to competing Blueprints.
+
+AVERAGE MC COUNTS — NATURAL ACQUISITION (1,000 RUNS)
+Scenario        W40     W50     W60     W63
+Baseline        2.206   4.238   7.147   8.310
+Lions           4.811   9.909  16.187  18.507
+Eleonor         3.480   6.764  11.338  12.643
+Tander          3.262   6.020  10.007  11.410
+Magel           2.822   5.739  10.290  12.093
+
+Lions retains the strongest average acquisition rate. Eleonor remains ahead of both Tander and Magel through Wave 63. Magel begins behind Tander at Wave 40, but moves ahead by Wave 60. Its extra Doctrine drafts offer more chances to acquire the Amplifier-granting Doctrines, although the model does not assume that every extra draft contains one.
+
+These are averages across complete simulated runs. Averages do not describe how widely individual outcomes vary; threshold probabilities and run-to-run variation are examined later in the report.
+
+3.5. The role of Amplifiers in accelerating the chain
+
+Amplifiers increase the rarity weight of the targeted Mission Control Blueprint. One targeting Amplifier gives a 2x weight multiplier; two give a 3x multiplier. The modifiers add, rather than multiply with one another.
+
+Two acquisition conditions are now compared consistently across all five scenarios:
+
+NATURAL: Both Amplifier-granting Doctrines must be acquired through the modeled reward system.
+
+TIER I DOCTRINE FROM WAVE 1: The Tier I Amplifier-granting Doctrine (D1_45) is already owned at the start. It is removed from the later Doctrine pool; the Tier II Doctrine (D2_42) remains obtainable normally. This does not introduce a third Amplifier.
+
+AVERAGE MC COUNTS AT WAVE 60 (1,000 RUNS)
+Scenario        Natural   Tier I from W1
+Baseline          7.147       7.574
+Lions            16.187      17.903
+Eleonor          11.338      12.336
+Tander           10.007      10.811
+Magel            10.290      10.472
+
+AVERAGE MC COUNTS AT WAVE 63 (1,000 RUNS)
+Scenario        Natural   Tier I from W1
+Baseline          8.310       8.653
+Lions            18.507      20.323
+Eleonor          12.643      13.854
+Tander           11.410      12.193
+Magel            12.093      12.315
+
+Granting the Tier I Doctrine from the beginning improves average acquisition for every scenario in this sample, but its impact is not uniform. The gain is particularly modest for Magel, whose extra Doctrine drafts already create more opportunities to find Amplifier-granting Doctrines through normal play.
+
+The earlier 'saved Amplifier' comparison, which added a permanent artificial +100% bonus on top of naturally acquired Amplifiers, is superseded. Its previously reported Wave-60 value of 19.32 must not be reused for this revised scenario.
+
+The separate no-Amplifier-effect ablation remains an earlier 500-run sensitivity test (Baseline Wave-60 mean 3.182). It is not directly part of the new matched 1,000-run scenario comparison and should be identified as such if retained.
+
+SECTION 3 SUMMARY
+
+Wave 40 marks the modeled shift from primarily reinforcement-driven growth to recursive Blueprint acquisition through Mission Control's 3A upgrade. Early Mission Controls and Amplifiers influence the opportunities available at that transition. By Wave 63, all four faction and commander bonuses outperform Baseline in average Mission Control ownership, with Lions leading the modeled scenarios. These results concern acquisition only; they do not establish a survival probability at the Wave 63–64 difficulty increase.
+
+MODEL NOTES
+- All simulated MCs are immediately built; construction costs, placement limits, and held MC inventory are not modeled.
+- Magel receives a choose-one-of-three Doctrine draft on even-numbered waves after ordinary reinforcement. Exact same-wave ordering remains provisional.
+- The model prioritizes an Amplifier-granting Doctrine in Magel's draft when one is offered.
+- The model's ordinary reward-selection policy does not systematically seek a second Amplifier after the first has been obtained.
+- These numbers are from the 1,000-seed batch, not extrapolations.

@@ -1,0 +1,67 @@
+TOWER DOMINION — MISSION CONTROL CHAIN REPORT
+PDF STYLE GUIDE — APPROVED DESIGN DIRECTION
+
+1. VISUAL IDENTITY
+Technical strategy publication with restrained military science-fiction styling.
+A4 portrait. Light analytical pages on warm ivory (#F4F2EC), with dark navy (#172331) headings, slate (#26394C) supporting elements, muted gold (#D5A34B) highlights, and steel gray (#6B7885) secondary text.
+Only the cover should use a full dark background. Avoid ornamental clutter.
+
+2. TYPOGRAPHY AND PAGE GEOMETRY
+Modern readable sans serif (Source Sans 3 or Liberation Sans, subject to availability and embedding rights).
+Body approximately 10.5–11 pt, comfortable line spacing, margins approximately 20 mm with a slightly wider inner margin.
+Consistent header, footer, section hierarchy, page numbering, and navigable PDF bookmarks.
+Major sections begin on a new page; subsections flow naturally.
+
+3. SCENARIO COLORS
+Baseline #777777 (reference).
+Lions #D64545 (faction).
+Eleonor #36965C (commander).
+Tander #3478D4 (commander).
+Magel #9B59B6 (commander).
+Use colors consistently for scenario identification in charts and tables, not arbitrary decoration.
+
+4. TABLES AND NUMBERS
+Right-align numeric values. Means: two decimal places in report presentation; probabilities: one decimal place; probability differences: percentage points (pp).
+Subtle horizontal separators rather than heavy grids.
+Place simulation conditions and sample sizes with table titles.
+Repeat column headers on continued pages. Avoid splitting short tables.
+Do not imply greater precision than the underlying results support.
+
+5. CHARTS
+Charts must be generated from SIMULATION-1000-RUNS.json, never approximated from sketches.
+Suggested figures: MC growth by recorded checkpoint, Wave 63 acquisition thresholds, natural versus Tier I-from-Wave-1 comparison, Eleonor versus Magel late-game comparison.
+Use vector artwork when possible; legends and labels must be readable.
+Straight connections between recorded checkpoints are visual guides, not interpolated simulation outputs.
+
+6. EVIDENCE AND INTERPRETATION
+Distinguish simulation results from interpretations. Interpretive notes may use a thin gold rule and neutral background.
+Limitations use subdued gray. Do not imply that acquisition probabilities are survival probabilities.
+Preserve precise distinction between Lions (faction) and Eleonor, Tander, Magel (commanders).
+
+7. COVER AND NAVIGATION
+Dark navy typography-first cover with report title, subtitle, and study scope.
+Compact contents page with clickable links and PDF bookmarks for sections and appendix.
+Number interior pages; omit or separately style cover numbering.
+
+8. PAGINATION AND CONTENT INTEGRITY — MANDATORY
+Never leave a label, heading, title, caption, or introductory line isolated at the bottom of a page while its associated content starts on the next page.
+
+- Keep each section/subsection heading with at least the first two lines of following text.
+- Keep table title, subtitle, column headers, and at least first data row together.
+- Keep chart title, chart, legend, and figure caption together whenever the figure fits on one page.
+- Keep numbered-item labels and explanatory labels with the content they introduce.
+- If the required group does not fit, move it to the next page as a unit.
+- Use paragraph widow/orphan control: avoid single lines stranded at the top or bottom of pages.
+- Long prose and long tables may break at logical boundaries to avoid excessive blank space; repeat table headers and preserve context.
+- Avoid splitting compact comparisons or callouts.
+- Review actual rendered page boundaries; automatic keep-together behavior alone is not sufficient.
+
+9. FINAL OUTPUT VALIDATION
+Searchable/selectable text, embedded fonts when permitted, crisp vector graphics, no clipped text, no collisions with margins or footers, and consistent terminology.
+Inspect every rendered page, especially page breaks, table continuations, chart captions, and isolated labels.
+Do not generate the final PDF until the text source has completed editorial review.
+
+AUTHORITATIVE SOURCES
+REPORT-SECTION-01.txt through REPORT-SECTION-08.txt
+REPORT-APPENDIX.txt
+SIMULATION-1000-RUNS.json

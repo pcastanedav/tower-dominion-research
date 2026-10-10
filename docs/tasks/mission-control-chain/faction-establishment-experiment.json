@@ -1,0 +1,99 @@
+{
+  "description": "Faction roster comparison with matched Baseline and Chain policies. Lions Red duplication only for Lions; other factions no invented commander bonuses.",
+  "trials": 1000,
+  "seed_start": 1,
+  "waves": 103,
+  "checkpoints": [
+    20,
+    35,
+    40,
+    50,
+    60,
+    63,
+    64,
+    83,
+    103
+  ],
+  "defaults": {
+    "tier3_wave": 40
+  },
+  "scenarios": [
+    {
+      "name": "Iron / Natural",
+      "config": {
+        "faction": "Iron",
+        "red": false
+      }
+    },
+    {
+      "name": "Iron / Chain",
+      "config": {
+        "faction": "Iron",
+        "red": false,
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "Lions / Natural",
+      "config": {
+        "faction": "Lions",
+        "red": true
+      }
+    },
+    {
+      "name": "Lions / Chain",
+      "config": {
+        "faction": "Lions",
+        "red": true,
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "Pargan / Natural",
+      "config": {
+        "faction": "Pargan",
+        "red": false
+      }
+    },
+    {
+      "name": "Pargan / Chain",
+      "config": {
+        "faction": "Pargan",
+        "red": false,
+        "package": "salamander",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "scenario": "Iron / Chain",
+      "reference": "Iron / Natural"
+    },
+    {
+      "scenario": "Lions / Chain",
+      "reference": "Lions / Natural"
+    },
+    {
+      "scenario": "Pargan / Chain",
+      "reference": "Pargan / Natural"
+    }
+  ]
+}

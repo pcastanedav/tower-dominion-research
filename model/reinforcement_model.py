@@ -441,7 +441,7 @@ def cached_ordinary_pool(faction,wave,t2_bonus=0,placed_towers=()):
     if key not in _ORDINARY_CACHE:_ORDINARY_CACHE[key]=tuple(wave_weights(faction,wave,0,3,t2_bonus,placed_towers))
     return _ORDINARY_CACHE[key]
 
-def dynamic_doctrine_pool_fast(faction,wave,removed=(),family_count=0,tb_owned=(),tb_mult=3,placed_families=None,t2_bonus=0,placed_towers=()):
+def dynamic_doctrine_pool_fast(faction,wave,removed=(),family_count=0,tb_owned=(),tb_mult=3,placed_families=None,t2_bonus=0,placed_towers=(),suppressed_families=(),amplified_families=()):
     rem=removed if isinstance(removed,set) else set(removed)
     pool=[x for x in cached_ordinary_pool(faction,wave,t2_bonus,placed_towers) if x[0] not in rem]
     owned=tb_owned if isinstance(tb_owned,set) else set(tb_owned)
@@ -459,8 +459,11 @@ def dynamic_doctrine_pool_fast(faction,wave,removed=(),family_count=0,tb_owned=(
             if name.startswith('TB') and 'D' in name:
                 try: families.add(int(name[2:name.index('D')]))
                 except ValueError: pass
-    for f in sorted(families):
-        pool.extend((name,wt) for name in tb_active_nodes(f,owned,f in placed))
+    suppressed = set(suppressed_families)
+    amplified = set(amplified_families)
+    for f in sorted(families - suppressed):
+        family_weight = wt * (2 if f in amplified else 1)
+        pool.extend((name,family_weight) for name in tb_active_nodes(f,owned,f in placed))
     return pool
 
 # Route dynamic screen through cached ordinary pool.

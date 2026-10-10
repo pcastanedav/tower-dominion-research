@@ -1,0 +1,377 @@
+{
+  "description": "Additional offensive package comparisons; building 1 and 2 tracked separately; fortress restricted to Lions/Red.",
+  "trials": 1000,
+  "seed_start": 1,
+  "waves": 103,
+  "checkpoints": [
+    20,
+    35,
+    40,
+    50,
+    60,
+    63,
+    64,
+    83,
+    103
+  ],
+  "defaults": {
+    "faction": "Lions",
+    "tier3_wave": 40
+  },
+  "scenarios": [
+    {
+      "name": "howitzer / Baseline",
+      "config": {
+        "package": "howitzer",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "howitzer / Lions",
+      "config": {
+        "red": true,
+        "package": "howitzer",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "howitzer / Eleanor",
+      "config": {
+        "eleanor": true,
+        "package": "howitzer",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "howitzer / Tander",
+      "config": {
+        "tander": true,
+        "package": "howitzer",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "howitzer / Magel",
+      "config": {
+        "magel": true,
+        "package": "howitzer",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "cannon / Baseline",
+      "config": {
+        "package": "cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "cannon / Lions",
+      "config": {
+        "red": true,
+        "package": "cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "cannon / Eleanor",
+      "config": {
+        "eleanor": true,
+        "package": "cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "cannon / Tander",
+      "config": {
+        "tander": true,
+        "package": "cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "cannon / Magel",
+      "config": {
+        "magel": true,
+        "package": "cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "howitzer_cannon / Baseline",
+      "config": {
+        "package": "howitzer_cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "howitzer_cannon / Lions",
+      "config": {
+        "red": true,
+        "package": "howitzer_cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "howitzer_cannon / Eleanor",
+      "config": {
+        "eleanor": true,
+        "package": "howitzer_cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "howitzer_cannon / Tander",
+      "config": {
+        "tander": true,
+        "package": "howitzer_cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "howitzer_cannon / Magel",
+      "config": {
+        "magel": true,
+        "package": "howitzer_cannon",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_rampart / Baseline",
+      "config": {
+        "package": "sphd_rampart",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_rampart / Lions",
+      "config": {
+        "red": true,
+        "package": "sphd_rampart",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_rampart / Eleanor",
+      "config": {
+        "eleanor": true,
+        "package": "sphd_rampart",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "sphd_rampart / Tander",
+      "config": {
+        "tander": true,
+        "package": "sphd_rampart",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_rampart / Magel",
+      "config": {
+        "magel": true,
+        "package": "sphd_rampart",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_retribution / Baseline",
+      "config": {
+        "package": "sphd_retribution",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_retribution / Lions",
+      "config": {
+        "red": true,
+        "package": "sphd_retribution",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_retribution / Eleanor",
+      "config": {
+        "eleanor": true,
+        "package": "sphd_retribution",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true,
+        "eleanor_starting_mc_1a_equivalent": 10,
+        "eleanor_initial_tier23_dampening": false,
+        "eleanor_first_wave": 2,
+        "eleanor_cadence": 2
+      }
+    },
+    {
+      "name": "sphd_retribution / Tander",
+      "config": {
+        "tander": true,
+        "package": "sphd_retribution",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_retribution / Magel",
+      "config": {
+        "magel": true,
+        "package": "sphd_retribution",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    },
+    {
+      "name": "sphd_fortress / Lions",
+      "config": {
+        "red": true,
+        "package": "sphd_fortress",
+        "attenuation_enabled": true,
+        "mc_build_target": 40,
+        "mc_reserve_target": 3,
+        "mc_batch_size": 2,
+        "mc_construction_policy": "continuous",
+        "mc_dynamic_selectivity": true
+      }
+    }
+  ],
+  "comparisons": []
+}

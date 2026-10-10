@@ -1,0 +1,22 @@
+TOWER DOMINION — MISSION CONTROL REPORT SOURCE INDEX
+
+REPORT-SECTION-01.txt — approved introduction, only scenario roster updated.
+REPORT-SECTION-02.txt — approved simulation explanation, updated to 1,000 runs and two Doctrine conditions.
+REPORT-SECTION-03.txt — corrected Section 3, pending editorial review.
+REPORT-SECTION-04.txt through REPORT-SECTION-08.txt — scenario comparison, Wave 63, late game, Amplifiers, conclusions.
+REPORT-APPENDIX.txt — simulation parameters, limitations, reproduction notes.
+SIMULATION-1000-RUNS.json — machine-readable results for 10 scenarios, 1,000 seeds each, Waves 1–103.
+
+Reproduction:
+PYTHONPATH=model python3 tools/mc_1000_run.py
+NOTE: The runner is copied into tools/; results depend on the exact version of the model and input data.
+
+Chart colors for future presentation:
+Baseline gray #777777; Lions red #D64545; Eleonor green #36965C; Tander blue #3478D4; Magel purple #9B59B6.
+
+Editorial rules:
+- Complete and review plain-text sections before generating PDF/HTML.
+- Wave 63 is an acquisition checkpoint, not a modeled survival threshold.
+- 'Tier I from Wave 1' means Doctrine D1_45 preowned and excluded from later rewards; D2_42 remains naturally obtainable.
+- Supersede the earlier artificial saved-Amplifier bonus comparison.
+- Do not tune simulation parameters to match observed gameplay.

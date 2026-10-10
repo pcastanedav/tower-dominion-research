@@ -1,0 +1,102 @@
+SECTION 6 — LATE-GAME GROWTH: WAVES 64–103
+Status: draft for editorial review.
+Source: SIMULATION-1000-RUNS.json, 1,000 runs per scenario.
+
+6.1. Growth after Wave 63
+
+The simulation continues through Wave 103 under the same acquisition assumptions. It does not model combat survival, so these results describe growth potential in runs allowed to continue rather than expected outcomes among actual surviving players.
+
+As additional Mission Controls are acquired, their 3A Blueprint drafts create further opportunities to extend the chain.
+
+AVERAGE MISSION CONTROLS — NATURAL AMPLIFIER ACQUISITION
+Scenario        W63     W64     W83     W103
+Baseline        8.31    8.63   16.69    27.31
+Lions          18.51   19.26   36.45    56.56
+Eleonor        12.64   13.36   26.01    40.87
+Tander         11.41   11.90   22.92    35.76
+Magel          12.09   12.79   27.43    46.17
+
+Lions leads throughout the late game. Magel shows strong growth and moves ahead of Eleonor in average Mission Control count by Wave 83. Baseline continues growing but remains behind the scenarios.
+
+6.2. Comparing late-game growth rates
+
+The change in average MC count between Waves 63 and 103 is calculated directly from the simulated checkpoint averages, not from an extrapolated growth model.
+
+Scenario        W63     W103    Change
+Baseline        8.31    27.31   +19.00
+Lions          18.51    56.56   +38.05
+Eleonor        12.64    40.87   +28.22
+Tander         11.41    35.76   +24.35
+Magel          12.09    46.17   +34.07
+
+Lions adds the most Mission Controls over the interval. Magel has the second-largest increase, approximately 34.07, exceeding Eleonor's 28.22 despite starting Wave 63 slightly behind.
+
+This is consistent with Magel's additional Doctrine opportunities becoming influential over longer runs. The comparison does not isolate the contribution of each individual Doctrine.
+
+6.3. Changes in scenario rankings
+
+Average MC count at Wave 63:
+1. Lions
+2. Eleonor
+3. Magel
+4. Tander
+5. Baseline
+
+Average MC count at Waves 83 and 103:
+1. Lions
+2. Magel
+3. Eleonor
+4. Tander
+5. Baseline
+
+Magel's move ahead of Eleonor is the principal ranking change. Scenario comparisons therefore depend on the checkpoint: Eleonor performs better at Wave 63, while Magel has the larger average by Wave 83.
+
+6.4. Late-game acquisition thresholds
+
+PROBABILITY OF >=20 MC — NATURAL AMPLIFIER ACQUISITION
+Scenario        W63      W83      W103
+Baseline         6.1%    29.7%     65.3%
+Lions           36.5%    78.5%     95.6%
+Eleonor         16.7%    63.2%     91.7%
+Tander          13.7%    52.7%     86.7%
+Magel           18.9%    59.5%     91.4%
+
+Although Magel has a higher mean than Eleonor at Waves 83 and 103, Eleonor retains a slightly higher probability of reaching the 20-MC threshold at those checkpoints.
+
+This illustrates that larger average chains do not imply greater reliability at every threshold. Lions remains strongest on this measure.
+
+6.5. Late-game results with the Tier I Amplifier Doctrine
+
+The alternative condition grants the Tier I Amplifier Doctrine at Wave 1, removes it from later rewards, and leaves the Tier II Doctrine available naturally.
+
+AVERAGE MC COUNT AT WAVE 103
+Scenario        Natural   Tier I from W1    Change
+Baseline         27.312          28.583     +1.271
+Lions            56.556          60.584     +4.028
+Eleonor          40.866          43.008     +2.142
+Tander           35.762          36.828     +1.066
+Magel            46.167          46.586     +0.419
+
+All five scenarios have higher average counts under the saved-Doctrine condition. Lions has the largest absolute gain, and Magel the smallest.
+
+The small change for Magel does not mean Amplifiers are unimportant. It indicates that granting this specific Doctrine at the start provides relatively little incremental benefit compared with Magel's natural modeled acquisition opportunities.
+
+6.6. Practical interpretation and limitations
+
+All simulated runs continue through Wave 103, regardless of whether their defenses could actually survive enemy attacks.
+
+The results therefore measure acquisition potential, not expected MC counts among real survivors. This matters particularly for Magel, whose advantages become more pronounced late in the run.
+
+Similarly, Lions' leading acquisition results do not establish that Lions has the strongest overall combat strategy.
+
+SECTION 6 SUMMARY
+
+Lions maintains the highest average, reaching 56.56 MC by Wave 103 under natural acquisition.
+
+Magel has the second-largest post-Wave-63 increase and overtakes Eleonor in average count by Wave 83, reaching 46.17 by Wave 103.
+
+Eleonor nevertheless remains slightly more consistent at the 20-MC threshold at Waves 83 and 103.
+
+The Tier I-from-Wave-1 scenario improves averages for every commander, with the smallest incremental gain for Magel.
+
+These results describe long-term acquisition characteristics; Wave 63 remains the main strategic checkpoint.

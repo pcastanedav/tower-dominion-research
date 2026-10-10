@@ -1,0 +1,77 @@
+APPENDIX — SIMULATION PARAMETERS AND REPRODUCIBILITY
+Status: source notes, current 1,000-run batch.
+
+A.1. Dataset
+
+File: SIMULATION-1000-RUNS.json
+Scenarios: Baseline, Lions, Eleonor, Tander, Magel.
+Conditions: Natural Doctrine acquisition; Tier I Amplifier Doctrine preowned from Wave 1.
+Runs per scenario: 1,000, seeds 1–1000.
+Total runs: 10,000.
+Simulated waves per run: 103.
+Recorded checkpoints: Waves 20, 35, 40, 50, 60, 63, 64, 83, 103.
+Recorded statistics: mean MC count; percentage with >=5, >=10, >=20 MCs.
+No censored runs were accepted by the batch runner.
+
+DATA COMPATIBILITY: The raw JSON retains the historical scenario key 'Eleanor', corresponding to the display name 'Eleonor'. This is a label alias only; numeric data is unchanged. Report generation should normalize the display name, not alter results.
+
+A.2. Model implementation
+
+Repository: /home/pcastaneda/Documents/tower-dominion-analysis
+Simulation implementation: model/mc_wave60.py
+Blueprint roster: model/mc_roster.py, maps/blueprints.json
+Doctrine and draft logic: model/mc_doctrines.py and supporting model modules.
+Batch runner: tools/mc_1000_run.py (copied from the completed batch runner).
+
+The runner uses the same seeds for each scenario and records all selected checkpoints. The result JSON was captured from the completed batch.
+
+A.3. Scenario configurations
+
+Baseline: no faction- or commander-specific acquisition modifier.
+Lions (faction): additional Blueprint quantities from ordinary reinforcement.
+Eleonor (commander): periodic additional Blueprint draft.
+Tander (commander): four reinforcement cards instead of three.
+Magel (commander): additional choose-one-of-three Doctrine draft every other wave.
+
+Magel's extra draft occurs after ordinary reinforcement in the current implementation; exact same-wave ordering is provisional.
+
+A.4. Core acquisition rules
+
+32 ordinary reinforcement-eligible Blueprints: 12 Tier I, 10 Tier II, 10 Tier III.
+Ordinary reinforcement: three cards of two rewards, with Tander receiving four cards.
+MC 1A: +2 raw rarity weight to eligible Tier II and Tier III Blueprints for each MC.
+MC 3A: two choose-one-of-five Blueprint drafts per MC.
+Wave 40 onward: model assumes every constructed MC can be upgraded to 3A.
+Newly acquired MCs are built and their available drafts resolved immediately.
+One assigned Amplifier: 2x MC rarity weight. Two: 3x (additive +100% each).
+Natural condition: D1_45 and D2_42 can be acquired from rewards.
+Saved Tier I condition: D1_45 is preowned at Wave 1 and removed from reward pool; D2_42 remains obtainable.
+
+A.5. Scope and exclusions
+
+The model does not simulate combat, survival, building placement, actual resource budgets, or holding acquired MCs unbuilt. Pit, Reactive, and Calculator effects are excluded. Some reward sequencing and scenario details remain provisional.
+
+The simulation's reward policy does not systematically prioritize the second Amplifier after the first.
+
+The thresholds >=5, >=10, and >=20 MCs are analytical markers, not established combat survival requirements.
+
+A.6. Statistical interpretation
+
+Each reported percentage is an empirical share of the 1,000 simulated runs. A difference of 1 percentage point corresponds to 10 runs. No confidence intervals or formal significance tests have been calculated.
+
+The Wave 63 and Wave 103 averages are unconditional on actual survival, because combat is not modeled.
+
+The earlier 500-run no-Amplifier sensitivity result is a separate batch and should not be treated as matched to the current 1,000-run scenarios.
+
+A.7. Reproduction
+
+From the repository root:
+PYTHONPATH=model python3 tools/mc_1000_run.py
+
+The runner writes its result file to /tmp/td_mc_1000_results.json and prints summary lines to standard output. Reproducing the recorded JSON requires the same model and input roster versions; repository changes may affect results. The simulation source and runner are presently uncommitted.
+
+A.8. Presentation workflow
+
+The authoritative editorial inputs are REPORT-SECTION-01.txt through REPORT-SECTION-08.txt and this Appendix.
+The authoritative numeric input is SIMULATION-1000-RUNS.json.
+Generate charts and final PDF/HTML only after the text has been reviewed; never reverse-engineer the source from rendered presentation files.
