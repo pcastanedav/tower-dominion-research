@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "question": "How does attenuation policy affect Mission Control acquisition?",
+  "trials": 100,
+  "seed_start": 1,
+  "waves": 60,
+  "checkpoints": [20, 35, 40, 50, 60],
+  "defaults": {"faction": "Lions"},
+  "scenarios": [{"name": "Reference"}],
+  "sweeps": [{
+    "name": "Attenuation policies",
+    "mode": "one_factor",
+    "reference": "Reference",
+    "parameters": {"attenuation_policy": ["tier1_only", "highest_weight"]}
+  }],
+  "metrics": ["mc_owned", "mc_built", "complete_sets", "has_all_required"]
+}
