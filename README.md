@@ -14,6 +14,14 @@ Observed installed build characteristics during this analysis:
 - `GameAssembly.dll`: `8d231ba6042414bdb050b8f13ea5e0fe3c6efd46add0e912381ab42a1dc5711a`.
 - `global-metadata.dat`: `884ba0045d3734daa64ce15f60bbe4d25494c2eeda2c3ba95540c4d40c18e2e1`.
 
+## Public and AI-assisted use
+
+Start with [`AGENTS.md`](AGENTS.md) if you are using an AI assistant, or [`docs/AI_GUIDE.md`](docs/AI_GUIDE.md) for a guided chat workflow. [`docs/GAME_KNOWLEDGE_INDEX.md`](docs/GAME_KNOWLEDGE_INDEX.md) links the mechanics, strategy, datasets, experiments, and evidence gaps. The existing `maps/*.json` datasets can be read without extracting game assets; see [`docs/EXTRACTION_GUIDE.md`](docs/EXTRACTION_GUIDE.md) for optional local extraction.
+
+A public GitHub link lets a chat assistant read accessible files, but does not automatically give it the ability to execute code or inspect a local game installation. All findings are scoped to inspected builds and their stated assumptions. The project is independent and unofficial.
+
+To run a reusable experiment locally, use `python tools/mc_experiment.py presets` and follow [`docs/tasks/mission-control-chain/EXPERIMENT-SPECIFICATION.md`](docs/tasks/mission-control-chain/EXPERIMENT-SPECIFICATION.md).
+
 ## Repository layout
 
 - `docs/MECHANICS.md` — verified mechanics and exact values.
@@ -27,7 +35,7 @@ Observed installed build characteristics during this analysis:
 
 ## Model status
 
-The current executable test suite passes **55/55 tests**. A misplaced early unittest.main() previously made direct execution report only 21 tests even though discovery contained 50; the harness now runs the complete suite directly.
+Run the current test suite with `python -m unittest discover -s model -p "test_*.py" -q`. The suite evolves as research and experiment tools are added; avoid relying on historical test counts.
 
 The evolving Doctrine model now uses real ordinary doctrine IDs and current-build faction/placement eligibility. Verified Doctrine-side state transitions are implemented for D1_19 Military Academy (+6 T2 weight), D2_06 Strict Obedience (two choose-1-among-3 drafts), and D2_40 Focused Militarization (+4 building-Doctrine multiplier before its choose-1-among-2 draft).
 
