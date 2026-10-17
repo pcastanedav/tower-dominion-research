@@ -1,6 +1,6 @@
 # Denshykova / Lions statue — Wave 35 D7 experiment extension
 
-Status: design assumptions confirmed; mechanical validation required before interpreting new simulated odds.
+Status: design assumptions confirmed; 2025-08-27 AssetRipper export inspected; critical commander/statue attribution remains unresolved before simulation.
 
 ## Fixed user assumptions (2026-10-17)
 - Denshykova's commander effect is active throughout the run, beginning Wave 1.
@@ -18,7 +18,12 @@ The primary basis for this extension is the earlier Doctrine-family research in 
 
 Earlier Doctrine-family findings: the default building-Doctrine multiplier is 3; a newly placed family exposes D1 and D4, each initially worth 3 tickets (6 combined); D7 unlocks after D3 OR D6; unrelated families dilute target progression, while delayed placement can improve D7 odds. `docs/STRATEGY.md` reports earlier stateful 5,000-run Lions results: isolated target D7 by Wave 35 69.38%, versus 30.10% with five early competing families. Those runs have different assumptions and are **not** directly comparable to the Wave-35 specialized-Blueprint pilot.
 
-`model/test_model.py` explicitly tests a Denshikova-style multiplier of 12 versus baseline 3 and its additional pool competition. `docs/MECHANICS.md` section 8 establishes global TB multiplier arithmetic and the distinction from targeted weight modifiers. Neither establishes that Denshykova's live commander ability is permanently 12×; that must still be traced. `docs/OPEN_QUESTIONS.md` separately flags Denshikova / The Stars Call first-upgrade effect ownership and timing. The Lions statue's Tier-1 curation must be verified independently and applied from the assumed Wave 5; do not conflate statue curation with global TB multiplier changes.
+`model/test_model.py` explicitly tests a Denshikova-labeled multiplier of 12 versus baseline 3 and its additional pool competition; this is a modeling label, **not verified evidence of Denshykova's commander effect**. `docs/MECHANICS.md` section 8 establishes global TB multiplier arithmetic and the distinction from targeted weight modifiers. Neither establishes that Denshykova's live commander ability is permanently 12×; that must still be traced. `docs/OPEN_QUESTIONS.md` separately flags Denshikova / The Stars Call first-upgrade effect ownership and timing. The Lions statue's Tier-1 curation must be verified independently and applied from the assumed Wave 5; do not conflate statue curation with global TB multiplier changes.
+
+## Asset verification checkpoint (2026-10-17)
+Inspected the local 2025-08-27 AssetRipper export at `ExportedProject/Assets/Resources/data/localization/English_Locale.asset` (not yet confirmed to match the currently installed game build). Localization identifies **F2H01 Knazyh Denshikova** with F2H01S01 `+50% units HP and damage` and F2H01S02 `Escort gains 2 Praetorian guards`. Neither listed ability supports attributing the older 12x global building-Doctrine multiplier to her. The same localization identifies **F207 The Stars Call**, described as `Upgrades for the commander`; its listed first upgrades concern Praetorian guards or troop HP, not Tier-1 Doctrine curation. The user-provided Wave-5 statue curation assumption therefore still needs its *actual* entity and effect source established. Do not equate F207 with the statue or with a Doctrine curation effect without evidence.
+
+Until those identities are resolved, the 18,000-run commander comparison is blocked rather than producing misleading Denshykova probabilities. The user assumption that her commander effect is always active is preserved, but the effect must be identified accurately.
 
 ## Required mechanical validation
 1. Identify the exact statue entity, first upgrade, and how Tier-1 curation works (which Doctrines are removed, how many, selection policy, and whether Amplifier/Attenuator are eligible for removal).
