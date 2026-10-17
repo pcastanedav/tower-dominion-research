@@ -5,7 +5,7 @@
 
 ## Eleanor
 
-- Trace F3H08S02 live effect arithmetic. Determine whether “T2 and T3 blueprints are +20% more likely” is raw addition, percentage modification, or another rarity-weight operation.
+- The corrected Eleanor model uses +20 raw Tier 2 and Tier 3 Blueprint rarity weights (ten MC-1A equivalents), **not** a 20% probability multiplier; see `docs/tasks/mission-control-chain/CHAIN-ESTABLISHMENT-2026-10-10.md`. Independently verify the exact live F3H08S02 application path if needed.
 - Compute exact Wave-2 and later T2/T3 Blueprint weights/odds.
 - Confirm that Grande Ecole's Blueprint-only drafts use the same weighted Blueprint selector and therefore inherit Meticulous Preparations.
 - Confirm same-wave ordering if both a normal reinforcement and special Blueprint draft occur.

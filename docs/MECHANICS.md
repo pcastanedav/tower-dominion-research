@@ -240,7 +240,7 @@ Thus Eleanor has two distinct Blueprint-side effects:
 1. a periodic Blueprint-only choose-1-among-3 draft every other wave;
 2. increased T2/T3 Blueprint appearance weighting.
 
-The exact arithmetic of the +20% effect is the next implementation question. Player observation that Eleanor can see higher-tier buildings around Wave 2 is consistent with a substantial rarity-weight modification, but the exact Wave-2 odds are not yet documented as verified.
+**Later research correction (2026-10-10):** The current corrected model represents this as ten MC-1A rarity-weight equivalents, or **+20 raw Tier 2 and +20 raw Tier 3 Blueprint weight** from Wave 1, additive rather than a +20% probability multiplier. This is a model/source-derived correction, not a claim of measured in-game odds. See `docs/tasks/mission-control-chain/CHAIN-ESTABLISHMENT-2026-10-10.md` (Eleanor commander modeling). The extra Blueprint draft timing and sampling still require game-asset verification.
 
 ## 11. Newly verified ordinary-Doctrine exceptions
 

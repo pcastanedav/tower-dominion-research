@@ -1,0 +1,633 @@
+{
+  "trials": 1000,
+  "target": "CB14",
+  "faction": "Lions",
+  "guaranteed_blueprint": false,
+  "status": "conditional_uncalibrated",
+  "scenarios": {
+    "isolated/baseline": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.465,
+        "2": 0.338,
+        "3": 0.224
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.023,
+          "2": 0.002,
+          "3": 0.0
+        },
+        "20": {
+          "1": 0.08,
+          "2": 0.036,
+          "3": 0.009
+        },
+        "25": {
+          "1": 0.182,
+          "2": 0.094,
+          "3": 0.037
+        },
+        "30": {
+          "1": 0.334,
+          "2": 0.202,
+          "3": 0.11
+        },
+        "35": {
+          "1": 0.465,
+          "2": 0.338,
+          "3": 0.224
+        }
+      },
+      "blueprint_acquired": 0.594,
+      "constructed": 0.574,
+      "amplifier_offers": 1195,
+      "amplifier_acquired": 1160,
+      "amplifier_active_waves": 5002,
+      "attenuator_offers": 1495,
+      "attenuator_acquired": 899,
+      "attenuator_zero_offer_runs": 105,
+      "amplifier_saved_runs": 814,
+      "amplifier_assigned_runs": 508,
+      "nested_drafts": 702,
+      "eleanor_drafts": 0
+    },
+    "isolated/eleanor": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.918,
+        "2": 0.806,
+        "3": 0.669
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.057,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.334,
+          "2": 0.115,
+          "3": 0.03
+        },
+        "20": {
+          "1": 0.556,
+          "2": 0.312,
+          "3": 0.148
+        },
+        "25": {
+          "1": 0.746,
+          "2": 0.529,
+          "3": 0.317
+        },
+        "30": {
+          "1": 0.842,
+          "2": 0.686,
+          "3": 0.517
+        },
+        "35": {
+          "1": 0.918,
+          "2": 0.806,
+          "3": 0.669
+        }
+      },
+      "blueprint_acquired": 0.966,
+      "constructed": 0.963,
+      "amplifier_offers": 1137,
+      "amplifier_acquired": 1071,
+      "amplifier_active_waves": 13016,
+      "attenuator_offers": 1343,
+      "attenuator_acquired": 797,
+      "attenuator_zero_offer_runs": 147,
+      "amplifier_saved_runs": 486,
+      "amplifier_assigned_runs": 804,
+      "nested_drafts": 568,
+      "eleanor_drafts": 17000
+    },
+    "minimal/baseline": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.421,
+        "2": 0.263,
+        "3": 0.16
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.018,
+          "2": 0.001,
+          "3": 0.0
+        },
+        "20": {
+          "1": 0.066,
+          "2": 0.029,
+          "3": 0.004
+        },
+        "25": {
+          "1": 0.162,
+          "2": 0.07,
+          "3": 0.032
+        },
+        "30": {
+          "1": 0.301,
+          "2": 0.158,
+          "3": 0.073
+        },
+        "35": {
+          "1": 0.421,
+          "2": 0.263,
+          "3": 0.16
+        }
+      },
+      "blueprint_acquired": 0.575,
+      "constructed": 0.556,
+      "amplifier_offers": 1120,
+      "amplifier_acquired": 1086,
+      "amplifier_active_waves": 4265,
+      "attenuator_offers": 1311,
+      "attenuator_acquired": 766,
+      "attenuator_zero_offer_runs": 171,
+      "amplifier_saved_runs": 754,
+      "amplifier_assigned_runs": 452,
+      "nested_drafts": 628,
+      "eleanor_drafts": 0
+    },
+    "minimal/eleanor": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.882,
+        "2": 0.747,
+        "3": 0.581
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.041,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.289,
+          "2": 0.089,
+          "3": 0.017
+        },
+        "20": {
+          "1": 0.518,
+          "2": 0.266,
+          "3": 0.096
+        },
+        "25": {
+          "1": 0.709,
+          "2": 0.48,
+          "3": 0.242
+        },
+        "30": {
+          "1": 0.818,
+          "2": 0.63,
+          "3": 0.439
+        },
+        "35": {
+          "1": 0.882,
+          "2": 0.747,
+          "3": 0.581
+        }
+      },
+      "blueprint_acquired": 0.96,
+      "constructed": 0.954,
+      "amplifier_offers": 1024,
+      "amplifier_acquired": 983,
+      "amplifier_active_waves": 12545,
+      "attenuator_offers": 1207,
+      "attenuator_acquired": 717,
+      "attenuator_zero_offer_runs": 195,
+      "amplifier_saved_runs": 463,
+      "amplifier_assigned_runs": 750,
+      "nested_drafts": 498,
+      "eleanor_drafts": 17000
+    },
+    "moderate/baseline": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.386,
+        "2": 0.215,
+        "3": 0.111
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.014,
+          "2": 0.001,
+          "3": 0.0
+        },
+        "20": {
+          "1": 0.052,
+          "2": 0.019,
+          "3": 0.002
+        },
+        "25": {
+          "1": 0.129,
+          "2": 0.053,
+          "3": 0.016
+        },
+        "30": {
+          "1": 0.261,
+          "2": 0.122,
+          "3": 0.05
+        },
+        "35": {
+          "1": 0.386,
+          "2": 0.215,
+          "3": 0.111
+        }
+      },
+      "blueprint_acquired": 0.594,
+      "constructed": 0.579,
+      "amplifier_offers": 904,
+      "amplifier_acquired": 879,
+      "amplifier_active_waves": 3596,
+      "attenuator_offers": 1007,
+      "attenuator_acquired": 617,
+      "attenuator_zero_offer_runs": 270,
+      "amplifier_saved_runs": 631,
+      "amplifier_assigned_runs": 395,
+      "nested_drafts": 452,
+      "eleanor_drafts": 0
+    },
+    "moderate/eleanor": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.819,
+        "2": 0.615,
+        "3": 0.385
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.038,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.241,
+          "2": 0.051,
+          "3": 0.007
+        },
+        "20": {
+          "1": 0.444,
+          "2": 0.168,
+          "3": 0.053
+        },
+        "25": {
+          "1": 0.607,
+          "2": 0.32,
+          "3": 0.139
+        },
+        "30": {
+          "1": 0.725,
+          "2": 0.478,
+          "3": 0.261
+        },
+        "35": {
+          "1": 0.819,
+          "2": 0.615,
+          "3": 0.385
+        }
+      },
+      "blueprint_acquired": 0.963,
+      "constructed": 0.958,
+      "amplifier_offers": 880,
+      "amplifier_acquired": 831,
+      "amplifier_active_waves": 10175,
+      "attenuator_offers": 998,
+      "attenuator_acquired": 614,
+      "attenuator_zero_offer_runs": 266,
+      "amplifier_saved_runs": 333,
+      "amplifier_assigned_runs": 664,
+      "nested_drafts": 400,
+      "eleanor_drafts": 17000
+    },
+    "broad/baseline": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.341,
+        "2": 0.169,
+        "3": 0.081
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.011,
+          "2": 0.001,
+          "3": 0.0
+        },
+        "20": {
+          "1": 0.043,
+          "2": 0.016,
+          "3": 0.0
+        },
+        "25": {
+          "1": 0.114,
+          "2": 0.039,
+          "3": 0.013
+        },
+        "30": {
+          "1": 0.23,
+          "2": 0.093,
+          "3": 0.029
+        },
+        "35": {
+          "1": 0.341,
+          "2": 0.169,
+          "3": 0.081
+        }
+      },
+      "blueprint_acquired": 0.584,
+      "constructed": 0.563,
+      "amplifier_offers": 784,
+      "amplifier_acquired": 766,
+      "amplifier_active_waves": 3534,
+      "attenuator_offers": 879,
+      "attenuator_acquired": 531,
+      "attenuator_zero_offer_runs": 333,
+      "amplifier_saved_runs": 568,
+      "amplifier_assigned_runs": 375,
+      "nested_drafts": 341,
+      "eleanor_drafts": 0
+    },
+    "broad/eleanor": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.784,
+        "2": 0.502,
+        "3": 0.253
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.023,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.194,
+          "2": 0.03,
+          "3": 0.004
+        },
+        "20": {
+          "1": 0.384,
+          "2": 0.118,
+          "3": 0.021
+        },
+        "25": {
+          "1": 0.555,
+          "2": 0.238,
+          "3": 0.065
+        },
+        "30": {
+          "1": 0.679,
+          "2": 0.379,
+          "3": 0.16
+        },
+        "35": {
+          "1": 0.784,
+          "2": 0.502,
+          "3": 0.253
+        }
+      },
+      "blueprint_acquired": 0.965,
+      "constructed": 0.96,
+      "amplifier_offers": 756,
+      "amplifier_acquired": 726,
+      "amplifier_active_waves": 8922,
+      "attenuator_offers": 799,
+      "attenuator_acquired": 478,
+      "attenuator_zero_offer_runs": 395,
+      "amplifier_saved_runs": 306,
+      "amplifier_assigned_runs": 590,
+      "nested_drafts": 319,
+      "eleanor_drafts": 17000
+    },
+    "delayed/baseline": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.391,
+        "2": 0.216,
+        "3": 0.116
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.018,
+          "2": 0.001,
+          "3": 0.0
+        },
+        "20": {
+          "1": 0.065,
+          "2": 0.028,
+          "3": 0.004
+        },
+        "25": {
+          "1": 0.138,
+          "2": 0.055,
+          "3": 0.025
+        },
+        "30": {
+          "1": 0.273,
+          "2": 0.122,
+          "3": 0.061
+        },
+        "35": {
+          "1": 0.391,
+          "2": 0.216,
+          "3": 0.116
+        }
+      },
+      "blueprint_acquired": 0.568,
+      "constructed": 0.554,
+      "amplifier_offers": 1003,
+      "amplifier_acquired": 972,
+      "amplifier_active_waves": 4117,
+      "attenuator_offers": 1226,
+      "attenuator_acquired": 722,
+      "attenuator_zero_offer_runs": 190,
+      "amplifier_saved_runs": 706,
+      "amplifier_assigned_runs": 431,
+      "nested_drafts": 484,
+      "eleanor_drafts": 0
+    },
+    "delayed/eleanor": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.859,
+        "2": 0.684,
+        "3": 0.465
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.041,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.289,
+          "2": 0.089,
+          "3": 0.017
+        },
+        "20": {
+          "1": 0.51,
+          "2": 0.254,
+          "3": 0.094
+        },
+        "25": {
+          "1": 0.672,
+          "2": 0.423,
+          "3": 0.202
+        },
+        "30": {
+          "1": 0.779,
+          "2": 0.564,
+          "3": 0.342
+        },
+        "35": {
+          "1": 0.859,
+          "2": 0.684,
+          "3": 0.465
+        }
+      },
+      "blueprint_acquired": 0.962,
+      "constructed": 0.957,
+      "amplifier_offers": 989,
+      "amplifier_acquired": 946,
+      "amplifier_active_waves": 12439,
+      "attenuator_offers": 1113,
+      "attenuator_acquired": 657,
+      "attenuator_zero_offer_runs": 238,
+      "amplifier_saved_runs": 456,
+      "amplifier_assigned_runs": 742,
+      "nested_drafts": 439,
+      "eleanor_drafts": 17000
+    },
+    "late/baseline": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.359,
+        "2": 0.197,
+        "3": 0.106
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.018,
+          "2": 0.001,
+          "3": 0.0
+        },
+        "20": {
+          "1": 0.066,
+          "2": 0.029,
+          "3": 0.004
+        },
+        "25": {
+          "1": 0.152,
+          "2": 0.067,
+          "3": 0.032
+        },
+        "30": {
+          "1": 0.264,
+          "2": 0.124,
+          "3": 0.058
+        },
+        "35": {
+          "1": 0.359,
+          "2": 0.197,
+          "3": 0.106
+        }
+      },
+      "blueprint_acquired": 0.578,
+      "constructed": 0.557,
+      "amplifier_offers": 995,
+      "amplifier_acquired": 973,
+      "amplifier_active_waves": 4170,
+      "attenuator_offers": 1173,
+      "attenuator_acquired": 691,
+      "attenuator_zero_offer_runs": 207,
+      "amplifier_saved_runs": 712,
+      "amplifier_assigned_runs": 439,
+      "nested_drafts": 509,
+      "eleanor_drafts": 0
+    },
+    "late/eleanor": {
+      "trials": 1000,
+      "expertise": {
+        "1": 0.853,
+        "2": 0.679,
+        "3": 0.471
+      },
+      "checkpoints": {
+        "10": {
+          "1": 0.041,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "15": {
+          "1": 0.289,
+          "2": 0.089,
+          "3": 0.017
+        },
+        "20": {
+          "1": 0.518,
+          "2": 0.266,
+          "3": 0.096
+        },
+        "25": {
+          "1": 0.697,
+          "2": 0.47,
+          "3": 0.23
+        },
+        "30": {
+          "1": 0.789,
+          "2": 0.585,
+          "3": 0.364
+        },
+        "35": {
+          "1": 0.853,
+          "2": 0.679,
+          "3": 0.471
+        }
+      },
+      "blueprint_acquired": 0.96,
+      "constructed": 0.954,
+      "amplifier_offers": 938,
+      "amplifier_acquired": 901,
+      "amplifier_active_waves": 12414,
+      "attenuator_offers": 1122,
+      "attenuator_acquired": 668,
+      "attenuator_zero_offer_runs": 227,
+      "amplifier_saved_runs": 455,
+      "amplifier_assigned_runs": 716,
+      "nested_drafts": 420,
+      "eleanor_drafts": 17000
+    }
+  }
+}
